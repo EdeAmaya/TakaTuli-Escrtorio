@@ -1,6 +1,12 @@
 
 package Modelo;
 //lol
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.UUID;
+
 public class User {
 private String UUID_Usuario;
     
@@ -66,6 +72,32 @@ private String UUID_Usuario;
 
     public void setDUI_Usuario(String DUI_Usuario) {
         this.DUI_Usuario = DUI_Usuario;
+    }
+    
+    
+    
+        public void GuardarUsuario() {
+        //Creamos una variable igual a ejecutar el método de la clase de conexión
+        Connection conexion = ClaseConexion.getConexion();
+        try {
+            //Creamos el PreparedStatement que ejecutará la Query
+            PreparedStatement addUsuario = conexion.prepareStatement("INSERT INTO tbUsuario(UUID_Usuario,Nombre_Usuario,Password_Usuario,Edad_Usuario,Telefono_Usuario,Correo_Usuario,DUI_Usuario) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            //Establecer valores de la consulta SQL
+            addUsuario.setString(1, UUID.randomUUID().toString());
+            addUsuario.setString(2, getNombre_Usuario());
+            addUsuario.setString(3, getPassword_Usuario());
+            addUsuario.setInt(4, getEdad_Usuario());
+            addUsuario.setString(5, getTelefono_Usuario());
+            addUsuario.setString(6, getCorreo_Usuario());
+            addUsuario.setString(7, getDUI_Usuario());
+            
+ 
+            //Ejecutar la consulta
+            addUsuario.executeUpdate();
+ 
+        } catch (SQLException ex) {
+            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+        }
     }
     
    
