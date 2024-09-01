@@ -26,13 +26,15 @@ public class ctrlRegistro implements MouseListener {
         Vista.btnRegisrtar.addMouseListener(this);
       
     }
+    
+    //Vista.txtContrasena.getText()
 
     @Override
     public void mouseClicked(MouseEvent e) {
         
         if (e.getSource() == Vista.btnRegisrtar) {
             Modelo.setNombre_Usuario(Vista.txtNombre.getText());
-            Modelo.setPassword_Usuario(Vista.txtContrasena.getText());
+            Modelo.setPassword_Usuario(Modelo.convertirSHA256(Vista.txtContrasena.getText()));
             Modelo.setEdad_Usuario(Integer.parseInt(Vista.txtEdad.getText()));
             Modelo.setTelefono_Usuario(Vista.txtTelefono.getText());
             Modelo.setCorreo_Usuario(Vista.txtCorreoElectronico.getText());
