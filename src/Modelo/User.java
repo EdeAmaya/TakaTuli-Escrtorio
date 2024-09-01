@@ -2,6 +2,8 @@
 package Modelo;
 //lol
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -73,6 +75,25 @@ private String UUID_Usuario;
     public void setDUI_Usuario(String DUI_Usuario) {
         this.DUI_Usuario = DUI_Usuario;
     }
+    
+    public String convertirSHA256(String password) {
+	MessageDigest md = null;
+	try {
+		md = MessageDigest.getInstance("SHA-256");
+	}
+	catch (NoSuchAlgorithmException e) {
+		System.out.println(e.toString());
+		return null;
+	}
+	byte[] hash = md.digest(password.getBytes());
+	StringBuffer sb = new StringBuffer();
+ 
+	for(byte b : hash) {
+		sb.append(String.format("%02x", b));
+	}
+ 
+	return sb.toString();
+}
     
     
     
