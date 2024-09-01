@@ -8,6 +8,7 @@ import Modelo.User;
 import Vista.FrmRegistrar;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,12 +34,31 @@ public class ctrlRegistro implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         
         if (e.getSource() == Vista.btnRegisrtar) {
-            Modelo.setNombre_Usuario(Vista.txtNombre.getText());
-            Modelo.setPassword_Usuario(Modelo.convertirSHA256(Vista.txtContrasena.getText()));
-            Modelo.setEdad_Usuario(Integer.parseInt(Vista.txtEdad.getText()));
+            if(Vista.txtNombre.getText().isEmpty()){
+                JOptionPane.showMessageDialog(Vista, "Llene los campos");
+            }
+            if(Modelo.convertirSHA256(Vista.txtContrasena.getText()).length() < 6){
+                JOptionPane.showMessageDialog(Vista, "La contraseña debe tener mas de 6 caracteres");
+            }
+            try {
+                int edadNumerica = Integer.parseInt(Vista.txtEdad.getText());
+                if(edadNumerica > 100 || edadNumerica == 0){
+                    JOptionPane.showMessageDialog(Vista, "Ingrese una edad valida");
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(Vista, "Ingrese solo numeros");
+            }
+            
             Modelo.setTelefono_Usuario(Vista.txtTelefono.getText());
-            Modelo.setCorreo_Usuario(Vista.txtCorreoElectronico.getText());
+            
+            
+            if(!Vista.txtCorreoElectronico.getText().contains("@") || !Vista.txtCorreoElectronico.getText().contains(".com")){
+                JOptionPane.showMessageDialog(Vista, "Ingrese un correo valido");
+            }
+            
             Modelo.setDUI_Usuario(Vista.txtDUI.getText());
+            
+            
             Modelo.GuardarUsuario();
         }
        
