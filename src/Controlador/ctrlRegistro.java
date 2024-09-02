@@ -24,8 +24,8 @@ public class ctrlRegistro implements MouseListener {
         this.modelo = Modelo;
         this.vista = Vista;
         
-        Vista.btnRegisrtar.addMouseListener(this);
-        Vista.btnIrALogin.addMouseListener(this);
+        vista.btnRegisrtar.addMouseListener(this);
+        vista.btnIrALogin.addMouseListener(this);
       
     }
     
@@ -33,10 +33,9 @@ public class ctrlRegistro implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+         if (e.getSource() == vista.btnRegisrtar) {
+        boolean validacionesCorrectas = true;
 
-     if (e.getSource() == vista.btnRegisrtar) {
-         
-       boolean validacionesCorrectas = true;
        if(vista.txtNombre.getText().isEmpty()||vista.txtContrasena.getText().isEmpty()||vista.txtEdad.getText().isEmpty()||vista.txtTelefono.getText().isEmpty()||vista.txtCorreoElectronico.getText().isEmpty()||vista.txtDUI.getText().isEmpty()){
                 JOptionPane.showMessageDialog(vista, "Llene los campos");
                 validacionesCorrectas = false;
@@ -55,19 +54,17 @@ public class ctrlRegistro implements MouseListener {
                 JOptionPane.showMessageDialog(vista, "Ingrese solo numeros");
                 validacionesCorrectas = false;
             }
-           
+
             if( !vista.txtTelefono.getText().matches("\\d{4}-\\d{4}")){
                 JOptionPane.showMessageDialog(vista, "Ingrese un número de teléfono válido en el formato 1234-5678");
                 validacionesCorrectas = false;
             }
-         
-           
-           
+
             if(!vista.txtCorreoElectronico.getText().contains("@") || !vista.txtCorreoElectronico.getText().contains(".com")){
                 JOptionPane.showMessageDialog(vista, "Ingrese un correo valido");
                 validacionesCorrectas = false;
             }
-           
+
              if( !vista.txtDUI.getText().matches("\\d{8}-\\d{1}")){
                 JOptionPane.showMessageDialog(vista, "Ingrese un número de DUI válido en el formato 12345678-9");
                 validacionesCorrectas = false;
@@ -88,7 +85,10 @@ public class ctrlRegistro implements MouseListener {
 
             if(e.getSource() == vista.btnIrALogin){
             Vista.frmLogin.initFrmLogin();
-             vista.dispose();
+
+            vista.dispose();
+
+        }
       }
     }
 
@@ -99,7 +99,7 @@ public class ctrlRegistro implements MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-       
+        
     }
 
     @Override
@@ -109,6 +109,7 @@ public class ctrlRegistro implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-       
+        
     }
   }
+
