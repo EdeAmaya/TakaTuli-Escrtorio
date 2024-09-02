@@ -16,14 +16,15 @@ import java.awt.event.MouseListener;
 public class ctrlRegistro implements MouseListener {
     
     
-    User Modelo;
-    FrmRegistrar Vista;
+    User modelo;
+    FrmRegistrar vista;
     
     public ctrlRegistro(User Modelo,FrmRegistrar Vista){
-        this.Modelo = Modelo;
-        this.Vista = Vista;
+        this.modelo = Modelo;
+        this.vista = Vista;
         
         Vista.btnRegisrtar.addMouseListener(this);
+        Vista.btnIrALogin.addMouseListener(this);
       
     }
     
@@ -32,14 +33,19 @@ public class ctrlRegistro implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         
-        if (e.getSource() == Vista.btnRegisrtar) {
-            Modelo.setNombre_Usuario(Vista.txtNombre.getText());
-            Modelo.setPassword_Usuario(Modelo.convertirSHA256(Vista.txtContrasena.getText()));
-            Modelo.setEdad_Usuario(Integer.parseInt(Vista.txtEdad.getText()));
-            Modelo.setTelefono_Usuario(Vista.txtTelefono.getText());
-            Modelo.setCorreo_Usuario(Vista.txtCorreoElectronico.getText());
-            Modelo.setDUI_Usuario(Vista.txtDUI.getText());
-            Modelo.GuardarUsuario();
+        if (e.getSource() == vista.btnRegisrtar) {
+            modelo.setNombre_Usuario(vista.txtNombre.getText());
+            modelo.setPassword_Usuario(modelo.convertirSHA256(vista.txtContrasena.getText()));
+            modelo.setEdad_Usuario(Integer.parseInt(vista.txtEdad.getText()));
+            modelo.setTelefono_Usuario(vista.txtTelefono.getText());
+            modelo.setCorreo_Usuario(vista.txtCorreoElectronico.getText());
+            modelo.setDUI_Usuario(vista.txtDUI.getText());
+            modelo.GuardarUsuario();
+        }
+        
+      if(e.getSource() == vista.btnIrALogin){
+            Vista.frmLogin.initFrmLogin();
+            vista.dispose();
         }
        
     }
