@@ -39,6 +39,7 @@ public class ctrlLogin implements MouseListener{
             }
         }
         
+       
         //Clic al botón de Ir Al Registro
         if(e.getSource() == vista.btnIrARegistro){
             Vista.FrmRegistrar.initFrmRegistro();
