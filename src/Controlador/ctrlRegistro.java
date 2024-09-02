@@ -76,7 +76,7 @@ public class ctrlRegistro implements MouseListener {
          
            
             if(validacionesCorrectas){
-             modelo.setNombre_Usuario(vista.txtNombre.getText());
+            modelo.setNombre_Usuario(vista.txtNombre.getText());
             modelo.setPassword_Usuario(modelo.convertirSHA256(vista.txtContrasena.getText()));
             modelo.setEdad_Usuario(Integer.parseInt(vista.txtEdad.getText()));
             modelo.setTelefono_Usuario(vista.txtTelefono.getText());
@@ -84,12 +84,11 @@ public class ctrlRegistro implements MouseListener {
             modelo.setDUI_Usuario(vista.txtDUI.getText());
             modelo.GuardarUsuario();
             }
-        
-        
-      if(e.getSource() == vista.btnIrALogin){
-            Vista.frmLogin.initFrmLogin();
-            vista.dispose();
         }
+
+            if(e.getSource() == vista.btnIrALogin){
+            Vista.frmLogin.initFrmLogin();
+             vista.dispose();
       }
     }
 
