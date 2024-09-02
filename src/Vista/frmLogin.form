@@ -54,8 +54,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="376" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnIniciarSesion" pref="128" max="32767" attributes="0"/>
-                              <Component id="btnIrARegistro" max="32767" attributes="0"/>
+                              <Component id="btnIniciarSesion" max="32767" attributes="0"/>
+                              <Component id="btnRecuperarContraseña" max="32767" attributes="0"/>
+                              <Component id="btnIrARegistro" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -74,9 +75,11 @@
                   <Component id="txtContraseña" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   <Component id="btnIniciarSesion" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnIrARegistro" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnRecuperarContraseña" min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,6 +110,14 @@
             </Property>
             <Property name="text" type="java.lang.String" value="LOGIN"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRecuperarContrase&#xf1;a">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Recuperar Contrase&#xf1;a"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnIrARegistro">
           <Properties>

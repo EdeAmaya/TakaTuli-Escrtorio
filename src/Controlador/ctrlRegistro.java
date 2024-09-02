@@ -85,12 +85,11 @@ public class ctrlRegistro implements MouseListener {
 
             if(e.getSource() == vista.btnIrALogin){
             Vista.frmLogin.initFrmLogin();
-
             vista.dispose();
 
         }
-      
-    }
+      }
+    
 
     @Override
     public void mousePressed(MouseEvent e) {
