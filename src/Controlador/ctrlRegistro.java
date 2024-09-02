@@ -24,8 +24,8 @@ public class ctrlRegistro implements MouseListener {
         this.modelo = Modelo;
         this.vista = Vista;
         
-        Vista.btnRegisrtar.addMouseListener(this);
-        Vista.btnIrALogin.addMouseListener(this);
+        vista.btnRegisrtar.addMouseListener(this);
+        vista.btnIrALogin.addMouseListener(this);
       
     }
     
@@ -33,56 +33,54 @@ public class ctrlRegistro implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
-
-        if (e.getSource() == Vista.btnRegisrtar) {
+         if (e.getSource() == vista.btnRegisrtar) {
         boolean validacionesCorrectas = true;
-       if(Vista.txtNombre.getText().isEmpty()||Vista.txtContrasena.getText().isEmpty()||Vista.txtEdad.getText().isEmpty()||Vista.txtTelefono.getText().isEmpty()||Vista.txtCorreoElectronico.getText().isEmpty()||Vista.txtDUI.getText().isEmpty()){
-                JOptionPane.showMessageDialog(Vista, "Llene los campos");
+       if(vista.txtNombre.getText().isEmpty()||vista.txtContrasena.getText().isEmpty()||vista.txtEdad.getText().isEmpty()||vista.txtTelefono.getText().isEmpty()||vista.txtCorreoElectronico.getText().isEmpty()||vista.txtDUI.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vista, "Llene los campos");
                 validacionesCorrectas = false;
             }
-            if(Vista.txtContrasena.getText().length() < 6){
-                JOptionPane.showMessageDialog(Vista, "La contraseña debe tener mas de 6 caracteres");
+            if(vista.txtContrasena.getText().length() < 6){
+                JOptionPane.showMessageDialog(vista, "La contraseña debe tener mas de 6 caracteres");
                 validacionesCorrectas = false;
             }
             try {
-                int edadNumerica = Integer.parseInt(Vista.txtEdad.getText());
+                int edadNumerica = Integer.parseInt(vista.txtEdad.getText());
                 if(edadNumerica > 100 || edadNumerica == 0){
-                    JOptionPane.showMessageDialog(Vista, "Ingrese una edad valida");
+                    JOptionPane.showMessageDialog(vista, "Ingrese una edad valida");
                     validacionesCorrectas = false;
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(Vista, "Ingrese solo numeros");
+                JOptionPane.showMessageDialog(vista, "Ingrese solo numeros");
                 validacionesCorrectas = false;
             }
             
-            if( !Vista.txtTelefono.getText().matches("\\d{4}-\\d{4}")){
-                JOptionPane.showMessageDialog(Vista, "Ingrese un número de teléfono válido en el formato 1234-5678");
+            if( !vista.txtTelefono.getText().matches("\\d{4}-\\d{4}")){
+                JOptionPane.showMessageDialog(vista, "Ingrese un número de teléfono válido en el formato 1234-5678");
                 validacionesCorrectas = false;
             }
           
             
             
-            if(!Vista.txtCorreoElectronico.getText().contains("@") || !Vista.txtCorreoElectronico.getText().contains(".com")){
-                JOptionPane.showMessageDialog(Vista, "Ingrese un correo valido");
+            if(!vista.txtCorreoElectronico.getText().contains("@") || !vista.txtCorreoElectronico.getText().contains(".com")){
+                JOptionPane.showMessageDialog(vista, "Ingrese un correo valido");
                 validacionesCorrectas = false;
             }
             
-             if( !Vista.txtDUI.getText().matches("\\d{8}-\\d{1}")){
-                JOptionPane.showMessageDialog(Vista, "Ingrese un número de DUI válido en el formato 12345678-9");
+             if( !vista.txtDUI.getText().matches("\\d{8}-\\d{1}")){
+                JOptionPane.showMessageDialog(vista, "Ingrese un número de DUI válido en el formato 12345678-9");
                 validacionesCorrectas = false;
             }
              
          
             
             if(validacionesCorrectas){
-             Modelo.setNombre_Usuario(Vista.txtNombre.getText());
-            Modelo.setPassword_Usuario(Modelo.convertirSHA256(Vista.txtContrasena.getText()));
-            Modelo.setEdad_Usuario(Integer.parseInt(Vista.txtEdad.getText()));
-            Modelo.setTelefono_Usuario(Vista.txtTelefono.getText());
-            Modelo.setCorreo_Usuario(Vista.txtCorreoElectronico.getText());
-            Modelo.setDUI_Usuario(Vista.txtDUI.getText());
-            Modelo.GuardarUsuario();
+             modelo.setNombre_Usuario(vista.txtNombre.getText());
+            modelo.setPassword_Usuario(modelo.convertirSHA256(vista.txtContrasena.getText()));
+            modelo.setEdad_Usuario(Integer.parseInt(vista.txtEdad.getText()));
+            modelo.setTelefono_Usuario(vista.txtTelefono.getText());
+            modelo.setCorreo_Usuario(vista.txtCorreoElectronico.getText());
+            modelo.setDUI_Usuario(vista.txtDUI.getText());
+            modelo.GuardarUsuario();
             }
 
          
@@ -92,7 +90,7 @@ public class ctrlRegistro implements MouseListener {
             vista.dispose();
 
         }
-       
+      }
     }
 
     @Override
@@ -102,7 +100,7 @@ public class ctrlRegistro implements MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-       
+        
     }
 
     @Override
@@ -112,7 +110,9 @@ public class ctrlRegistro implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-       
+        
     }
+
+ 
     
 }
