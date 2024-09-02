@@ -89,7 +89,7 @@ public class ctrlRegistro implements MouseListener {
             vista.dispose();
 
         }
-      }
+      
     }
 
     @Override
