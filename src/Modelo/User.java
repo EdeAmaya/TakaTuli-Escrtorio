@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -119,6 +120,33 @@ private String UUID_Usuario;
         } catch (SQLException ex) {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }
+    }
+        
+        public boolean iniciarSesion() {
+        //Obtenemos la conexión a la base de datos
+        Connection conexion = ClaseConexion.getConexion();
+        boolean resultado = false;
+
+        try {
+            //Preparamos la consulta SQL para verificar el usuario
+            String sql = "SELECT * FROM tbUsuario WHERE Correo_Usuario = ? AND Password_Usuario = ?";
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, getCorreo_Usuario());
+            statement.setString(2, getPassword_Usuario());
+
+            //Ejecutamos la consulta
+            ResultSet resultSet = statement.executeQuery();
+
+            //Si hay un resultado, significa que el usuario existe y la contraseña es correcta
+            if (resultSet.next()) {
+                resultado = true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en el modelo: método iniciarSesion " + ex);
+        }
+
+        return resultado;
     }
     
    

@@ -17,14 +17,15 @@ import javax.swing.JOptionPane;
 public class ctrlRegistro implements MouseListener {
     
     
-    User Modelo;
-    FrmRegistrar Vista;
+    User modelo;
+    FrmRegistrar vista;
     
     public ctrlRegistro(User Modelo,FrmRegistrar Vista){
-        this.Modelo = Modelo;
-        this.Vista = Vista;
+        this.modelo = Modelo;
+        this.vista = Vista;
         
         Vista.btnRegisrtar.addMouseListener(this);
+        Vista.btnIrALogin.addMouseListener(this);
       
     }
     
@@ -33,6 +34,7 @@ public class ctrlRegistro implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         
+
         if (e.getSource() == Vista.btnRegisrtar) {
         boolean validacionesCorrectas = true;
        if(Vista.txtNombre.getText().isEmpty()||Vista.txtContrasena.getText().isEmpty()||Vista.txtEdad.getText().isEmpty()||Vista.txtTelefono.getText().isEmpty()||Vista.txtCorreoElectronico.getText().isEmpty()||Vista.txtDUI.getText().isEmpty()){
@@ -83,8 +85,12 @@ public class ctrlRegistro implements MouseListener {
             Modelo.GuardarUsuario();
             }
 
-          
-    
+         
+        
+      if(e.getSource() == vista.btnIrALogin){
+            Vista.frmLogin.initFrmLogin();
+            vista.dispose();
+
         }
        
     }
