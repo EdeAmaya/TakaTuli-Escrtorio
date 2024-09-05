@@ -41,6 +41,7 @@ public class frmRecuperacion extends javax.swing.JFrame {
         txtCorreoRecuperacion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnEnviarCodigo = new javax.swing.JButton();
+        btnvolverRecuperacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +49,8 @@ public class frmRecuperacion extends javax.swing.JFrame {
         jLabel1.setText("Escriba su Correo");
 
         btnEnviarCodigo.setText("Enviar Codigo");
+
+        btnvolverRecuperacion.setText("<---");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,11 +68,17 @@ public class frmRecuperacion extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnEnviarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(317, 317, 317))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(btnvolverRecuperacion)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(16, 16, 16)
+                .addComponent(btnvolverRecuperacion)
+                .addGap(69, 69, 69)
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
                 .addComponent(txtCorreoRecuperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,6 +138,7 @@ public class frmRecuperacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEnviarCodigo;
+    public javax.swing.JButton btnvolverRecuperacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField txtCorreoRecuperacion;

@@ -139,10 +139,11 @@ private String UUID_Usuario;
 
         try {
             //Preparamos la consulta SQL para verificar el usuario
-            String sql = "SELECT * FROM tbUsuario WHERE Correo_Usuario = ? AND Password_Usuario = ?";
+            String sql = "SELECT * FROM tbUsuario WHERE (Correo_Usuario = ? OR Nombre_Usuario = ?) AND Password_Usuario = ?";
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, getCorreo_Usuario());
-            statement.setString(2, getPassword_Usuario());
+            statement.setString(2, getCorreo_Usuario());
+            statement.setString(3, getPassword_Usuario());
 
             //Ejecutamos la consulta
             ResultSet resultSet = statement.executeQuery();

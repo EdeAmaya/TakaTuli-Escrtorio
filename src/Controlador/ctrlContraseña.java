@@ -35,9 +35,35 @@ public class ctrlContraseña implements MouseListener {
         // Obtener la nueva contraseña y convertirla a SHA256
         String correo = recuperacion.getCorreoRecuperacion();
 
+       
+        boolean validacionesCorrectas = true;
+        
+        
+          if(vista.txtNuevaContraseña.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vista, "Llene los campos");
+                  validacionesCorrectas = false;
+
+            } else {
+            
+                 if(vista.txtNuevaContraseña.getText().length() < 6){
+                JOptionPane.showMessageDialog(vista, "La contraseña debe tener mas de 6 caracteres");
+                validacionesCorrectas = false;
+            }
+
+            }
+
+            
+            if(validacionesCorrectas){
         modelo.setPassword_Usuario(modelo.convertirSHA256(vista.txtNuevaContraseña.getText()));
         modelo.setCorreo_Usuario(correo);
         modelo.ActualizarContraseña();
+        
+      
+            Vista.frmLogin.initFrmLogin();
+             vista.dispose();
+        
+            }
+            
     }
 }
 

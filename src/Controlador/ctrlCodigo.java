@@ -16,6 +16,8 @@ public class ctrlCodigo implements MouseListener {
         this.vista = Vista;
         this.recuperacion = Recuperacion;
         
+        vista.btnvolvercodigo.addMouseListener(this);
+        
         vista.btnVCodigo.addMouseListener(this);
         
     }
@@ -47,6 +49,11 @@ public class ctrlCodigo implements MouseListener {
                 JOptionPane.showMessageDialog(vista, "El código ingresado no es válido. Asegúrate de que sea un número.");
             }
         }
+            
+        }
+            if(e.getSource() == vista.btnvolvercodigo){
+                Vista.frmRecuperacion.initFrmRecuperacion();
+                vista.dispose();
             
     }
 

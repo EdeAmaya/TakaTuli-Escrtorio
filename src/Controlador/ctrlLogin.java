@@ -32,11 +32,20 @@ public class ctrlLogin implements MouseListener{
             boolean comprobar = modelo.iniciarSesion();
 
             //Si la variable es "true" significa que si existe el usuario ingresado    
-            if (comprobar == true) {
+        
+            
+            
+            if(vista.txtCorreo.getText().isEmpty() || vista.txtContraseña.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vista, "Llene los campos");
+            } else {
+            
+                 if (comprobar == true) {
                 JOptionPane.showMessageDialog(vista,"Usuario existe, ¡Bienvenido!");
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario no encontrado");
 
+            }
+            
             }
         }
         

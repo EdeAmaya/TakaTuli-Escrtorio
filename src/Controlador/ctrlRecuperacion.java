@@ -22,6 +22,7 @@ public class ctrlRecuperacion implements MouseListener {
         this.vista = Vista;
 
         vista.btnEnviarCodigo.addMouseListener(this);
+        vista.btnvolverRecuperacion.addMouseListener(this);
     }
     
     
@@ -67,6 +68,11 @@ public class ctrlRecuperacion implements MouseListener {
                   
             }
             System.out.println("Código generado: " + numeroAleatorio);
+        }
+        
+        if(e.getSource() == vista.btnvolverRecuperacion){
+            Vista.frmLogin.initFrmLogin();
+             vista.dispose();
         }
 
     }
