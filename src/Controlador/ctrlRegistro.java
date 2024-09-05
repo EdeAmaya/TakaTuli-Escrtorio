@@ -39,14 +39,14 @@ public class ctrlRegistro implements MouseListener {
        if(vista.txtNombre.getText().isEmpty()||vista.txtContrasena.getText().isEmpty()||vista.txtEdad.getText().isEmpty()||vista.txtTelefono.getText().isEmpty()||vista.txtCorreoElectronico.getText().isEmpty()||vista.txtDUI.getText().isEmpty()){
                 JOptionPane.showMessageDialog(vista, "Llene los campos");
                 validacionesCorrectas = false;
-            }
-            if(vista.txtContrasena.getText().length() < 6){
+            } else {
+           if(vista.txtContrasena.getText().length() < 6){
                 JOptionPane.showMessageDialog(vista, "La contraseña debe tener mas de 6 caracteres");
                 validacionesCorrectas = false;
             }
             try {
                 int edadNumerica = Integer.parseInt(vista.txtEdad.getText());
-                if(edadNumerica > 100 || edadNumerica == 0){
+                if(edadNumerica > 100 || edadNumerica < 18){
                     JOptionPane.showMessageDialog(vista, "Ingrese una edad valida");
                     validacionesCorrectas = false;
                 }
@@ -69,6 +69,8 @@ public class ctrlRegistro implements MouseListener {
                 JOptionPane.showMessageDialog(vista, "Ingrese un número de DUI válido en el formato 12345678-9");
                 validacionesCorrectas = false;
             }
+       }
+            
              
          
            

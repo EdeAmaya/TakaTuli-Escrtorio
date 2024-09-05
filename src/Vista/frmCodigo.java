@@ -45,6 +45,7 @@ public class frmCodigo extends javax.swing.JFrame {
         txtCode = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnVCodigo = new javax.swing.JButton();
+        btnvolvercodigo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,8 @@ public class frmCodigo extends javax.swing.JFrame {
         jLabel1.setText("Escriba su Codigo");
 
         btnVCodigo.setText("Verificar");
+
+        btnvolvercodigo.setText("<---");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -67,14 +70,21 @@ public class frmCodigo extends javax.swing.JFrame {
                         .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(160, 160, 160))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(305, 305, 305)
-                .addComponent(btnVCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(btnVCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnvolvercodigo)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(26, 26, 26)
+                .addComponent(btnvolvercodigo)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addGap(30, 30, 30)
                 .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,6 +144,7 @@ public class frmCodigo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnVCodigo;
+    public javax.swing.JButton btnvolvercodigo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField txtCode;
