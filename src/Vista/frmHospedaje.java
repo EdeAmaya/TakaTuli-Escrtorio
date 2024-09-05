@@ -74,25 +74,28 @@ public class frmHospedaje extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 527, 992, 333));
 
         btnAgregarH.setBackground(new java.awt.Color(113, 181, 48));
-        btnAgregarH.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnAgregarH.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btnAgregarH.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarH.setText("Agregar");
         jPanel1.add(btnAgregarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 435, 117, 38));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 155, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Precio:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 236, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Descripcion:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 318, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         btnEliminarH.setBackground(new java.awt.Color(129, 1, 13));
-        btnEliminarH.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnEliminarH.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btnEliminarH.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarH.setText("Eliminar");
         btnEliminarH.addActionListener(new java.awt.event.ActionListener() {
@@ -103,13 +106,13 @@ public class frmHospedaje extends javax.swing.JFrame {
         jPanel1.add(btnEliminarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 435, 117, 38));
 
         btnActualizarH.setBackground(new java.awt.Color(222, 126, 45));
-        btnActualizarH.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnActualizarH.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btnActualizarH.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizarH.setText("Actualizar");
         jPanel1.add(btnActualizarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 434, 117, 40));
 
         btnLimpiarH.setBackground(new java.awt.Color(20, 126, 150));
-        btnLimpiarH.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnLimpiarH.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         btnLimpiarH.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarH.setText("Limpiar");
         jPanel1.add(btnLimpiarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 434, 121, 40));
@@ -123,7 +126,7 @@ public class frmHospedaje extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Hospedajes");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

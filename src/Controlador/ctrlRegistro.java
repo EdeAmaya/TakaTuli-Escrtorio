@@ -82,6 +82,8 @@ public class ctrlRegistro implements MouseListener {
             modelo.setCorreo_Usuario(vista.txtCorreoElectronico.getText());
             modelo.setDUI_Usuario(vista.txtDUI.getText());
             modelo.GuardarUsuario();
+            Vista.frmLogin.initFrmLogin();
+            vista.dispose();
             }
         }
 

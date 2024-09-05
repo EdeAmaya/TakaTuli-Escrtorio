@@ -51,7 +51,7 @@ public class ctrlHospedaje implements MouseListener {
             } else {
           
               try {
-                int PrecioNumerico = Integer.parseInt(vista.txtPrecioH1.getText());
+                double PrecioNumerico = Double.parseDouble(vista.txtPrecioH1.getText());
                 if(PrecioNumerico < 0 ){
                     JOptionPane.showMessageDialog(vista, "Ingrese un Precio valido");
                     validacionesCorrectas = false;
