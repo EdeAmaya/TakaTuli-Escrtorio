@@ -41,6 +41,8 @@ public class ctrlLogin implements MouseListener{
             
                  if (comprobar == true) {
                 JOptionPane.showMessageDialog(vista,"Usuario existe, ¡Bienvenido!");
+                Vista.frmHospedaje.initFrmHospedaje();
+                vista.dispose();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario no encontrado");
 
