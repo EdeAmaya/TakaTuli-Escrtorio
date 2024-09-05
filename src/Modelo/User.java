@@ -2,12 +2,22 @@
 package Modelo;
 //lol
 
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.UUID;
 
 public class User {
@@ -148,8 +158,91 @@ private String UUID_Usuario;
 
         return resultado;
     }
+        
+        
+        public boolean verificarCorreo() {
+        //Obtenemos la conexión a la base de datos
+        Connection conexion = ClaseConexion.getConexion();
+        boolean resultado = false;
+
+        try {
+            //Preparamos la consulta SQL para verificar el usuario
+            String sql = "SELECT * FROM tbUsuario WHERE Correo_Usuario = ?";
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, getCorreo_Usuario());
+
+            //Ejecutamos la consulta
+            ResultSet resultSet = statement.executeQuery();
+
+            //Si hay un resultado, significa que el usuario existe y la contraseña es correcta
+            if (resultSet.next()) {
+                resultado = true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en el modelo: método iniciarSesion " + ex);
+        }
+
+        return resultado;
+    }
+        
     
-   
+    public static void enviarCorreo(String recipient, String subject, String content) {
+        
+        //1- Propiedades del servidor de correo
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com"); 
+        properties.put("mail.smtp.port", "587");
+
+        
+        
+        //2- Credenciales de la cuenta de correo
+        final String myAccountEmail = "noseenose64@gmail.com";
+        final String password = "ozvt qrxm vutj rvla";
+
+        // Crear sesión
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(myAccountEmail, password);
+            }
+        });
+
+        //3- Enviar el corre
+        try {
+            // Crear mensaje
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            message.setSubject(subject);
+            message.setText(content);
+
+            // Enviar mensaje
+            Transport.send(message);
+            System.out.println("Correo enviado con éxito");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    } 
     
-    
+   public boolean ActualizarContraseña() {
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+        String sql = "UPDATE tbUsuario SET Password_Usuario = ? WHERE Correo_Usuario = ?";
+        PreparedStatement updateUser = conexion.prepareStatement(sql);
+        updateUser.setString(1, getPassword_Usuario()); // Aquí se obtiene la nueva contraseña
+        updateUser.setString(2, getCorreo_Usuario()); // Aquí se obtiene el correo del modelo
+        
+         System.out.println("Correo: " + getCorreo_Usuario());
+System.out.println("Nueva Contraseña: " + getPassword_Usuario());
+        int rowsAffected = updateUser.executeUpdate();
+        return rowsAffected > 0; // Retorna verdadero si se actualizó al menos una fila
+     } catch (Exception e) {
+        System.out.println("Error en el método de actualizar: " + e.getMessage());
+        return false; // Retorna falso si hay un error
+      }
+    }
 }
+
