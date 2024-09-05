@@ -1,6 +1,8 @@
 package Controlador;
 
 import Modelo.User;
+import Vista.frmCodigo;
+import Vista.frmContraseña;
 import Vista.frmRecuperacion;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,6 +14,8 @@ public class ctrlRecuperacion implements MouseListener {
     
     User modelo;
     frmRecuperacion vista;
+    private int numeroAleatorio;
+    private static String correo;
     
     public ctrlRecuperacion(User Modelo, frmRecuperacion Vista) {
         this.modelo = Modelo;
@@ -21,6 +25,13 @@ public class ctrlRecuperacion implements MouseListener {
     }
     
     
+    public int getNumeroAleatorio() {
+        return numeroAleatorio; 
+    }
+    
+    public String getCorreoRecuperacion() {
+        return correo; 
+    }
     
 
     @Override
@@ -28,33 +39,36 @@ public class ctrlRecuperacion implements MouseListener {
         if (e.getSource() == vista.btnEnviarCodigo) {
             boolean correoCorrecto = true;
             modelo.setCorreo_Usuario(vista.txtCorreoRecuperacion.getText());
-            //Creo una variable llamada "comprobar" 
-            //que guardará el resultado de ejecutar el metodo iniciarSesion()            
             boolean comprobar = modelo.verificarCorreo();
 
-            //Si la variable es "true" significa que si existe el usuario ingresado    
             if (comprobar == true) {
-                JOptionPane.showMessageDialog(vista,"Tu Codigo de Verificacion a sido Enviado");
+                JOptionPane.showMessageDialog(vista, "Tu Código de Verificación ha sido Enviado");
             } else {
                 JOptionPane.showMessageDialog(vista, "Correo no registrado");
                 correoCorrecto = false;
             }
-           
-        
-            if(correoCorrecto){
-             Random random = new Random();
-        
-            int numeroAleatorio = 1000 + random.nextInt(9000);
 
-            String recipient = vista.txtCorreoRecuperacion.getText();
-            String subject = "Recuperacion de contraseña";
-            String content = "Este es el codigo de recuperacion" + numeroAleatorio;
+            if (correoCorrecto) {
+                Random random = new Random();
+                correo = vista.txtCorreoRecuperacion.getText();
+                numeroAleatorio = 1000 + random.nextInt(9000); // Asignar el número aleatorio a la variable de instancia
+                String recipient = vista.txtCorreoRecuperacion.getText();
+                String subject = "Recuperación de contraseña";
+                String content = "Este es el código de recuperación: " + numeroAleatorio;
 
-            User.enviarCorreo(recipient, subject, content);
+                User.enviarCorreo(recipient, subject, content);
+                
+                // Aquí puedes instanciar el formulario de código, pasando controladores
+                  frmCodigo vistaCodigo = new frmCodigo();
+                  ctrlCodigo controladorCodigo = new ctrlCodigo(modelo, vistaCodigo, this);
+                  vistaCodigo.setVisible(true); // Asegúrate de mostrar el formulario
+                  vista.dispose();
+                  
+                  
             }
-
-        
+            System.out.println("Código generado: " + numeroAleatorio);
         }
+
     }
 
     @Override

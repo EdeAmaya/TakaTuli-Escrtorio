@@ -227,7 +227,22 @@ private String UUID_Usuario;
         }
     } 
     
-   
-    
-    
+   public boolean ActualizarContraseña() {
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+        String sql = "UPDATE tbUsuario SET Password_Usuario = ? WHERE Correo_Usuario = ?";
+        PreparedStatement updateUser = conexion.prepareStatement(sql);
+        updateUser.setString(1, getPassword_Usuario()); // Aquí se obtiene la nueva contraseña
+        updateUser.setString(2, getCorreo_Usuario()); // Aquí se obtiene el correo del modelo
+        
+         System.out.println("Correo: " + getCorreo_Usuario());
+System.out.println("Nueva Contraseña: " + getPassword_Usuario());
+        int rowsAffected = updateUser.executeUpdate();
+        return rowsAffected > 0; // Retorna verdadero si se actualizó al menos una fila
+     } catch (Exception e) {
+        System.out.println("Error en el método de actualizar: " + e.getMessage());
+        return false; // Retorna falso si hay un error
+      }
+    }
 }
+

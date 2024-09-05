@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import Controlador.ctrlCodigo;
+import Controlador.ctrlRecuperacion;
+import Modelo.User;
+
 /**
  *
  * @author edeni
@@ -15,6 +19,17 @@ public class frmCodigo extends javax.swing.JFrame {
      */
     public frmCodigo() {
         initComponents();
+    }
+    
+    public static void initFrmCodigo(){
+        User Modelo = new User();
+        frmCodigo Vista = new frmCodigo();
+        frmRecuperacion vistaRecuperacion = new frmRecuperacion();
+        ctrlRecuperacion controladorRecuperacion = new ctrlRecuperacion(Modelo,vistaRecuperacion);
+        ctrlCodigo controlador = new ctrlCodigo(Modelo,Vista,controladorRecuperacion);
+        
+        
+        Vista.setVisible(true);
     }
 
     /**
@@ -112,7 +127,7 @@ public class frmCodigo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmCodigo().setVisible(true);
+                initFrmCodigo();
             }
         });
     }
