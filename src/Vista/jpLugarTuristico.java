@@ -46,9 +46,12 @@ public class jpLugarTuristico extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtDetallesLugarT = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtTipoLugarT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnGuardarLugarT = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        btnGuardarH = new javax.swing.JButton();
+        btnSubirImagenH = new javax.swing.JButton();
+        lbImagenHospedaje = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,26 +70,53 @@ public class jpLugarTuristico extends javax.swing.JPanel {
         });
         contentLT.add(btnSubidosLT, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 542, 156, 36));
 
+        txtNombreLugarT.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreLugarT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
         txtNombreLugarT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreLugarTActionPerformed(evt);
             }
         });
-        contentLT.add(txtNombreLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 550, 30));
+        contentLT.add(txtNombreLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 590, 40));
 
+        jLabel2.setForeground(new java.awt.Color(255, 140, 0));
         jLabel2.setText("Nombre");
         contentLT.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+
+        txtDetallesLugarT.setBackground(new java.awt.Color(255, 255, 255));
+        txtDetallesLugarT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
         contentLT.add(txtDetallesLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 280, 340));
 
+        jLabel3.setForeground(new java.awt.Color(255, 140, 0));
         jLabel3.setText("Detalles");
         contentLT.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
-        contentLT.add(txtTipoLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 100, 40));
 
+        jLabel1.setForeground(new java.awt.Color(255, 140, 0));
         jLabel1.setText("TipoLugarTuristico");
         contentLT.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
+        btnGuardarLugarT.setBackground(new java.awt.Color(51, 153, 0));
+        btnGuardarLugarT.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarLugarT.setText("Guardar");
         contentLT.add(btnGuardarLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 100, 40));
+
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
+        contentLT.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 210, -1));
+
+        btnGuardarH.setBackground(new java.awt.Color(255, 51, 51));
+        btnGuardarH.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarH.setText("Cancelar");
+        contentLT.add(btnGuardarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 100, 40));
+
+        btnSubirImagenH.setBackground(new java.awt.Color(255, 140, 0));
+        btnSubirImagenH.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubirImagenH.setText("Subir Imagen");
+        contentLT.add(btnSubirImagenH, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 130, 40));
+
+        lbImagenHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Subir.png"))); // NOI18N
+        contentLT.add(lbImagenHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, -1));
 
         add(contentLT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
@@ -109,14 +139,17 @@ public class jpLugarTuristico extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnGuardarH;
     public javax.swing.JButton btnGuardarLugarT;
     public javax.swing.JButton btnSubidosLT;
+    public javax.swing.JButton btnSubirImagenH;
     public javax.swing.JPanel contentLT;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel lbImagenHospedaje;
     public javax.swing.JTextField txtDetallesLugarT;
     public javax.swing.JTextField txtNombreLugarT;
-    public javax.swing.JTextField txtTipoLugarT;
     // End of variables declaration//GEN-END:variables
 }

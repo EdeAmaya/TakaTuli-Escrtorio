@@ -69,21 +69,21 @@ public class frmInicio extends javax.swing.JFrame {
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 830, 600));
 
-        btnAjustes.setBackground(new java.awt.Color(0, 153, 51));
+        btnAjustes.setBackground(new java.awt.Color(130, 204, 25));
         btnAjustes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnAjustes.setForeground(new java.awt.Color(255, 255, 255));
         btnAjustes.setText("Ajustes");
         btnAjustes.setBorder(null);
         jPanel1.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 170, 50));
 
-        btnInicio.setBackground(new java.awt.Color(0, 153, 51));
+        btnInicio.setBackground(new java.awt.Color(130, 204, 25));
         btnInicio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
         btnInicio.setBorder(null);
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 170, 50));
 
-        btnDestinos.setBackground(new java.awt.Color(0, 153, 51));
+        btnDestinos.setBackground(new java.awt.Color(130, 204, 25));
         btnDestinos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnDestinos.setForeground(new java.awt.Color(255, 255, 255));
         btnDestinos.setText("Destinos");
@@ -95,7 +95,7 @@ public class frmInicio extends javax.swing.JFrame {
         });
         jPanel1.add(btnDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 170, 50));
 
-        btnChat.setBackground(new java.awt.Color(0, 153, 51));
+        btnChat.setBackground(new java.awt.Color(130, 204, 25));
         btnChat.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnChat.setForeground(new java.awt.Color(255, 255, 255));
         btnChat.setText("Chat");
