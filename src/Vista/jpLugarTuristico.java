@@ -48,7 +48,7 @@ public class jpLugarTuristico extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnGuardarLugarT = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtTipoLugarT = new javax.swing.JComboBox<>();
         btnGuardarH = new javax.swing.JButton();
         btnSubirImagenH = new javax.swing.JButton();
         lbImagenHospedaje = new javax.swing.JLabel();
@@ -100,10 +100,10 @@ public class jpLugarTuristico extends javax.swing.JPanel {
         btnGuardarLugarT.setText("Guardar");
         contentLT.add(btnGuardarLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 100, 40));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
-        contentLT.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 210, -1));
+        txtTipoLugarT.setBackground(new java.awt.Color(255, 255, 255));
+        txtTipoLugarT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtTipoLugarT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
+        contentLT.add(txtTipoLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 210, -1));
 
         btnGuardarH.setBackground(new java.awt.Color(255, 51, 51));
         btnGuardarH.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,12 +144,12 @@ public class jpLugarTuristico extends javax.swing.JPanel {
     public javax.swing.JButton btnSubidosLT;
     public javax.swing.JButton btnSubirImagenH;
     public javax.swing.JPanel contentLT;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel lbImagenHospedaje;
     public javax.swing.JTextField txtDetallesLugarT;
     public javax.swing.JTextField txtNombreLugarT;
+    public javax.swing.JComboBox<String> txtTipoLugarT;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,7 +33,6 @@ public class ctrlLugarTuristico implements MouseListener {
               
               modelo.setNombre_LugarTuristico(vista.txtNombreLugarT.getText());
               modelo.setDetalles_Lugar_Turistico( vista.txtDetallesLugarT.getText());
-              modelo.setUUID_TipoLugarTuristico(vista.txtTipoLugarT.getText());
           
               modelo.GuardarLugarTuristico();
               
