@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author jluis
  */
-public class ctrlHospedaje implements MouseListener {
+  public class ctrlHospedaje implements MouseListener {
     
     private jpHospedaje vista;
     private Hospedaje modelo;
@@ -35,6 +35,7 @@ public class ctrlHospedaje implements MouseListener {
         vista.btnGuardarH.addMouseListener(this);
        
         vista.btnCancelarH.addMouseListener(this);
+        vista.contentH.add(vista);
         
     
     }
@@ -65,13 +66,9 @@ public class ctrlHospedaje implements MouseListener {
            if(validacionesCorrectas){
               modelo.setNombre_Hospedaje(vista.txtNombreHospedaje.getText());
               modelo.setPrecio_Hospedaje(Double.parseDouble( vista.txtPrecioHospedaje.getText()));
-              modelo.setDetalles_Hospedaje(vista.txtDescripcionHospedaje.getText());
-          
+              modelo.setDetalles_Hospedaje(vista.txtDescripcionHospedaje.getText());          
               modelo.GuardarHospedaje();
-             
             }     
- 
-         
       }
            
            
@@ -83,9 +80,9 @@ public class ctrlHospedaje implements MouseListener {
        
     }
     
-       public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e){
  
-if (e.getSource() == vista.btnSubirImagenH) {
+     if (e.getSource() == vista.btnSubirImagenH) {
        
            JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("Selecciona una imagen");
@@ -96,9 +93,7 @@ if (e.getSource() == vista.btnSubirImagenH) {
 
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    
-                   
-
+   
                     try {
                         // Subir la imagen a Imgur
                         String urlSubida = modelo.subirImagenImgur(selectedFile);

@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ctrlHospedaje;
+import Modelo.Hospedaje;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -14,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -37,17 +40,32 @@ public class jpHospedaje extends javax.swing.JPanel {
     public jpHospedaje() {
         
         initComponents();
-          // Configurar el botón y la ventana
-       
-    
-
-        
+      Hospedaje Modelo = new Hospedaje();
+        jpHospedaje Vista = this ;
+        ctrlHospedaje controlador = new ctrlHospedaje(Vista,Modelo);
     }
+    /*
+      public static void initJPHospedaje(){
+        Hospedaje Modelo = new Hospedaje();
+        jpHospedaje Vista = new jpHospedaje();
+        ctrlHospedaje controlador = new ctrlHospedaje(Vista,Modelo);
+       // Vista.contentH.add(Vista);
+       // Vista.setVisible(true);
+    }*/
+      /*
+      public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+               initJPHospedaje();
+            }
+        });
+      
+    }*/
     
-        
-        
-        
+ 
 
+    
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

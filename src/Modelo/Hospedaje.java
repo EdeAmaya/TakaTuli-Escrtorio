@@ -30,6 +30,15 @@ public class Hospedaje {
     String Nombre_Hospedaje;
     double Precio_Hospedaje;
     String Detalles_Hospedaje;
+    String Fotos_Hospedaje;
+
+    public String getFotos_Hospedaje() {
+        return Fotos_Hospedaje;
+    }
+
+    public void setFotos_Hospedaje(String Fotos_Hospedaje) {
+        this.Fotos_Hospedaje = Fotos_Hospedaje;
+    }
     
     
     public String getUUID_Hospedaje() {
@@ -166,7 +175,7 @@ public class Hospedaje {
     }
              
              
-             public void limpiarHospedaje(jpHospedaje vista) {
+        public void limpiarHospedaje(jpHospedaje vista) {
         vista.txtNombreHospedaje.setText("");
         vista.txtPrecioHospedaje.setText("");
         vista.txtDescripcionHospedaje.setText("");
@@ -175,7 +184,7 @@ public class Hospedaje {
              
              
                    
-             public  String subirImagenImgur(File imageFile) throws IOException, ParseException {
+        public  String subirImagenImgur(File imageFile) throws IOException, ParseException {
         // Cargar la imagen y convertirla en Base64
         byte[] fileContent = Files.readAllBytes(imageFile.toPath());
         String encodedImage = Base64.getEncoder().encodeToString(fileContent);

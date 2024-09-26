@@ -64,6 +64,8 @@ public class LugarTuristico {
         this.UUID_TipoLugarTuristico = UUID_TipoLugarTuristico;
     }
     
+    
+    
      public void GuardarLugarTuristico() {
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();

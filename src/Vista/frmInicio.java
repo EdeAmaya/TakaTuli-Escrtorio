@@ -81,6 +81,11 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
         btnInicio.setBorder(null);
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 170, 50));
 
         btnDestinos.setBackground(new java.awt.Color(130, 204, 25));
@@ -127,13 +132,16 @@ public class frmInicio extends javax.swing.JFrame {
         jpDestinos pl = new jpDestinos(); // Crea una instancia 
         pl.setSize(830, 600);    // Establece el tamaño  
         pl.setLocation(0, 0);    // Establece la ubicación 
-    
        content.removeAll();      // Elimina todos los componentes del contenedor 'content'
        content.setLayout(new AbsoluteLayout());
        content.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        content.repaint(); 
     }//GEN-LAST:event_btnDestinosActionPerformed
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInicioActionPerformed
 
    
     public static void main(String args[]) {

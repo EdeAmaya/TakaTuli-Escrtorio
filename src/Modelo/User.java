@@ -211,7 +211,7 @@ private String UUID_Usuario;
             }
         });
 
-        //3- Enviar el corre
+        //3- Enviar el correo
         try {
             // Crear mensaje
             Message message = new MimeMessage(session);
