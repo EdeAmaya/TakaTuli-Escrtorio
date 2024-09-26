@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 
@@ -20,10 +21,7 @@ public class frmInicio extends javax.swing.JFrame {
     public frmInicio() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(jlbFondo,"src/Img/image (8).png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jlbLogo,"src/Img/logo.png");
-
-       
-        
+        rsscalelabel.RSScaleLabel.setScaleLabel(jlbLogo,"src/Img/logo.png"); 
     }
     
      public static void initFrmInicio(){
@@ -38,8 +36,11 @@ public class frmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        content = new javax.swing.JPanel();
+        btnAjustes = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
+        btnDestinos = new javax.swing.JButton();
+        btnChat = new javax.swing.JButton();
         jlbLogo = new javax.swing.JLabel();
         jlbFondo = new javax.swing.JLabel();
 
@@ -51,24 +52,53 @@ public class frmInicio extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(130, 204, 25));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        content.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 830, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 830, 600));
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 830, 600));
 
+        btnAjustes.setBackground(new java.awt.Color(0, 153, 51));
+        btnAjustes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnAjustes.setForeground(new java.awt.Color(255, 255, 255));
+        btnAjustes.setText("Ajustes");
+        btnAjustes.setBorder(null);
+        jPanel1.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 170, 50));
+
+        btnInicio.setBackground(new java.awt.Color(0, 153, 51));
         btnInicio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
+        btnInicio.setBorder(null);
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 170, 50));
+
+        btnDestinos.setBackground(new java.awt.Color(0, 153, 51));
+        btnDestinos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnDestinos.setForeground(new java.awt.Color(255, 255, 255));
+        btnDestinos.setText("Destinos");
+        btnDestinos.setBorder(null);
+        btnDestinos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDestinosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 170, 50));
+
+        btnChat.setBackground(new java.awt.Color(0, 153, 51));
+        btnChat.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnChat.setForeground(new java.awt.Color(255, 255, 255));
+        btnChat.setText("Chat");
+        btnChat.setBorder(null);
+        jPanel1.add(btnChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 170, 50));
 
         jlbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo.png"))); // NOI18N
         jPanel1.add(jlbLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 70));
@@ -90,6 +120,18 @@ public class frmInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDestinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDestinosActionPerformed
+        // TODO add your handling code here:
+        jpDestinos pl = new jpDestinos(); // Crea una instancia 
+        pl.setSize(830, 600);    // Establece el tamaño  
+        pl.setLocation(0, 0);    // Establece la ubicación 
+    
+       content.removeAll();      // Elimina todos los componentes del contenedor 'content'
+       content.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
+       content.repaint(); 
+    }//GEN-LAST:event_btnDestinosActionPerformed
+
    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -100,9 +142,12 @@ public class frmInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAjustes;
+    public javax.swing.JButton btnChat;
+    public javax.swing.JButton btnDestinos;
     public javax.swing.JButton btnInicio;
+    public javax.swing.JPanel content;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanel3;
     public javax.swing.JLabel jlbFondo;
     public javax.swing.JLabel jlbLogo;
     // End of variables declaration//GEN-END:variables
