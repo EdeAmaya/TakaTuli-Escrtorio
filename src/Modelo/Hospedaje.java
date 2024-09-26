@@ -1,14 +1,27 @@
 package Modelo;
 
-import Vista.frmHospedaje;
+
+import Vista.jpHospedaje;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Base64;
 import java.util.UUID;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.json.JSONObject;
 
 
 public class Hospedaje {
@@ -153,30 +166,52 @@ public class Hospedaje {
     }
              
              
-             public void limpiarHospedaje(frmHospedaje vista) {
-        vista.txtNombreH.setText("");
-        vista.txtPrecioH1.setText("");
-        vista.txtDescripcionH.setText("");
+             public void limpiarHospedaje(jpHospedaje vista) {
+        vista.txtNombreHospedaje.setText("");
+        vista.txtPrecioHospedaje.setText("");
+        vista.txtDescripcionHospedaje.setText("");
         
         }
              
-                public void cargarDatosTabla(frmHospedaje vista) {
-        // Obtén la fila seleccionada 
-        int filaSeleccionada = vista.jtbHospedaje.getSelectedRow();
+             
+                   
+             public  String subirImagenImgur(File imageFile) throws IOException, ParseException {
+        // Cargar la imagen y convertirla en Base64
+        byte[] fileContent = Files.readAllBytes(imageFile.toPath());
+        String encodedImage = Base64.getEncoder().encodeToString(fileContent);
 
-        // Debemos asegurarnos que haya una fila seleccionada antes de acceder a sus valores
-        if (filaSeleccionada != -1) {
-            String UUIDDeTb = vista.jtbHospedaje.getValueAt(filaSeleccionada, 0).toString();
-            String NombreDeTB = vista.jtbHospedaje.getValueAt(filaSeleccionada, 1).toString();
-            String EdadDeTb = vista.jtbHospedaje.getValueAt(filaSeleccionada, 2).toString();
-            String EspecialidadDeTB = vista.jtbHospedaje.getValueAt(filaSeleccionada, 3).toString();
+        // URL de la API de Imgur
+        String uploadUrl = "https://api.imgur.com/3/image";
 
-            // Establece los valores en los campos de texto
-            vista.txtNombreH.setText(NombreDeTB);
-            vista.txtPrecioH1.setText(EdadDeTb);
-            vista.txtDescripcionH.setText(EspecialidadDeTB);
-        }
+        // Crear un cliente HTTP
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost uploadFile = new HttpPost(uploadUrl);
+
+        // Configurar las cabeceras para autenticar la API de Imgur
+        uploadFile.addHeader("Authorization", "Client-ID cd3fcb280cd26f9");
+
+        // Crear el JSON para el body de la petición
+        JSONObject json = new JSONObject();
+        json.put("image", encodedImage);
+
+        // Establecer el JSON como entidad de la petición
+        StringEntity entity = new StringEntity(json.toString());
+        uploadFile.setEntity(entity);
+        uploadFile.addHeader("Content-Type", "application/json");
+
+        // Ejecutar la solicitud de subida
+        CloseableHttpResponse response = httpClient.execute(uploadFile);
+        String jsonResponse = EntityUtils.toString(response.getEntity());
+        
+        // Analizar la respuesta JSON para obtener la URL de la imagen
+        JSONObject responseObject = new JSONObject(jsonResponse);
+        String uploadedUrl = responseObject.getJSONObject("data").getString("link");
+        
+        response.close();
+        return uploadedUrl;
     }
+             
+       
   
     
 }

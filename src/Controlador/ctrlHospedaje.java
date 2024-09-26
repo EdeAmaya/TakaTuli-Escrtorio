@@ -5,9 +5,14 @@
 package Controlador;
 
 import Modelo.Hospedaje;
-import Vista.frmHospedaje;
+
+import Vista.jpHospedaje;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,42 +21,36 @@ import javax.swing.JOptionPane;
  */
 public class ctrlHospedaje implements MouseListener {
     
-    private frmHospedaje vista;
+    private jpHospedaje vista;
     private Hospedaje modelo;
     
-      public ctrlHospedaje(frmHospedaje vista, Hospedaje modelo){
+      public ctrlHospedaje(jpHospedaje vista, Hospedaje modelo){
         this.vista = vista;
         this.modelo = modelo;
         
-        vista.btnAgregarH.addMouseListener(this);  
+      
         
-        vista.jtbHospedaje.addMouseListener(this);
-        modelo.MostrarHospedaje(vista.jtbHospedaje);
+        vista.btnSubirImagenH.addMouseListener(this);
         
-        vista.btnEliminarH.addMouseListener(this);
-        vista.jtbHospedaje.addMouseListener(this);
-        
-        vista.btnActualizarH.addMouseListener(this);
-        
-        vista.btnLimpiarH.addMouseListener(this);
-        
-        vista.btnVolverH.addMouseListener(this);
+        vista.btnGuardarH.addMouseListener(this);
+       
+        vista.btnCancelarH.addMouseListener(this);
         
     
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-           if(e.getSource() == vista.btnAgregarH){
+           if(e.getSource() == vista.btnGuardarH){
                boolean validacionesCorrectas = true;
           
-          if(vista.txtNombreH.getText().isEmpty()||vista.txtPrecioH1.getText().isEmpty()||vista.txtDescripcionH.getText().isEmpty()){
+          if(vista.txtNombreHospedaje.getText().isEmpty()||vista.txtPrecioHospedaje.getText().isEmpty()||vista.txtDescripcionHospedaje.getText().isEmpty()){
                 JOptionPane.showMessageDialog(vista, "Llene los campos");
                 validacionesCorrectas = false;
             } else {
           
               try {
-                double PrecioNumerico = Double.parseDouble(vista.txtPrecioH1.getText());
+                double PrecioNumerico = Double.parseDouble(vista.txtPrecioHospedaje.getText());
                 if(PrecioNumerico < 0 ){
                     JOptionPane.showMessageDialog(vista, "Ingrese un Precio valido");
                     validacionesCorrectas = false;
@@ -64,76 +63,57 @@ public class ctrlHospedaje implements MouseListener {
           }    
                
            if(validacionesCorrectas){
-              modelo.setNombre_Hospedaje(vista.txtNombreH.getText());
-              modelo.setPrecio_Hospedaje(Double.parseDouble( vista.txtPrecioH1.getText()));
-              modelo.setDetalles_Hospedaje(vista.txtDescripcionH.getText());
+              modelo.setNombre_Hospedaje(vista.txtNombreHospedaje.getText());
+              modelo.setPrecio_Hospedaje(Double.parseDouble( vista.txtPrecioHospedaje.getText()));
+              modelo.setDetalles_Hospedaje(vista.txtDescripcionHospedaje.getText());
           
               modelo.GuardarHospedaje();
-              modelo.MostrarHospedaje(vista.jtbHospedaje);
+             
             }     
  
          
       }
            
-             if (e.getSource() == vista.btnEliminarH) {
-            
-                modelo.EliminarHospedaje(vista.jtbHospedaje);
-                modelo.MostrarHospedaje(vista.jtbHospedaje);
-                
-      
-            
-        }
-             if (e.getSource() == vista.btnActualizarH) {
-            
-                  boolean validacionesCorrectas = true;
-                 
-                 if(vista.txtNombreH.getText().isEmpty()||vista.txtPrecioH1.getText().isEmpty()||vista.txtDescripcionH.getText().isEmpty()){
-                JOptionPane.showMessageDialog(vista, "Llene los campos");
-                validacionesCorrectas = false;
-            } else {
+           
           
-              try {
-                int PrecioNumerico = Integer.parseInt(vista.txtPrecioH1.getText());
-                if(PrecioNumerico < 0 ){
-                    JOptionPane.showMessageDialog(vista, "Ingrese un Precio valido");
-                    validacionesCorrectas = false;
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(vista, "Ingrese solo numeros");
-                validacionesCorrectas = false;
-            }
-          
-          }
-            
-                 if(validacionesCorrectas){
-             //Asignar lo de la vista al modelo al momento de darle clic a actualizar
-                    modelo.setNombre_Hospedaje(vista.txtNombreH.getText());
-                    modelo.setPrecio_Hospedaje(Double.parseDouble(vista.txtPrecioH1.getText()));
-                    modelo.setDetalles_Hospedaje(vista.txtDescripcionH.getText());
-
-                    //Ejecutar el método    
-                    modelo.ActualizarHospedaje(vista.jtbHospedaje);
-                    modelo.MostrarHospedaje(vista.jtbHospedaje);
-            }  
-                    
-                    
-              
-            
-        }
     
-       if (e.getSource() == vista.btnLimpiarH) {
+       if (e.getSource() == vista.btnCancelarH) {
             modelo.limpiarHospedaje(vista);
         }
-
-        if (e.getSource() == vista.jtbHospedaje) {
-            modelo.cargarDatosTabla(vista);
-        }
-        
-          if(e.getSource() == vista.btnVolverH){
-            Vista.frmLogin.initFrmLogin();
-             vista.dispose();
-        }
+       
     }
+    
+       public void actionPerformed(ActionEvent e){
+ 
+if (e.getSource() == vista.btnSubirImagenH) {
+       
+           JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Selecciona una imagen");
+                
+                // Solo permitir seleccionar archivos
+                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                int result = fileChooser.showOpenDialog(null);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    
+                   
+
+                    try {
+                        // Subir la imagen a Imgur
+                        String urlSubida = modelo.subirImagenImgur(selectedFile);
+                        
+                        // Mostrar URL en un JOptionPane
+                        JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubida);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Error subiendo la imagen: " + ex.getMessage());
+                    }
+                }
+       
+       }
+
+}
 
     @Override
     public void mousePressed(MouseEvent e) {

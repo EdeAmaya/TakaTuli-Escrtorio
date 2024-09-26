@@ -4,6 +4,24 @@
  */
 package Vista;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Base64;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.json.JSONObject;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
@@ -17,8 +35,18 @@ public class jpHospedaje extends javax.swing.JPanel {
      * Creates new form jpHospedaje
      */
     public jpHospedaje() {
+        
         initComponents();
+          // Configurar el botón y la ventana
+       
+    
+
+        
     }
+    
+        
+        
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,15 +57,20 @@ public class jpHospedaje extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         contentH = new javax.swing.JPanel();
         btnSubidosH = new javax.swing.JButton();
+        txtNombreHospedaje = new javax.swing.JTextField();
+        txtDescripcionHospedaje = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtPrecioHospedaje = new javax.swing.JTextField();
+        btnCancelarH = new javax.swing.JButton();
+        btnGuardarH = new javax.swing.JButton();
+        lbImagenHospedaje = new javax.swing.JLabel();
+        btnSubirImagenH = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Hospedaje");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 269, -1, -1));
 
         contentH.setBackground(new java.awt.Color(255, 255, 255));
         contentH.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,6 +85,33 @@ public class jpHospedaje extends javax.swing.JPanel {
             }
         });
         contentH.add(btnSubidosH, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 542, 156, 36));
+
+        txtNombreHospedaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreHospedajeActionPerformed(evt);
+            }
+        });
+        contentH.add(txtNombreHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 290, 50));
+        contentH.add(txtDescripcionHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 290, 190));
+
+        jLabel2.setText("Nombre");
+        contentH.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+
+        jLabel3.setText("Precio");
+        contentH.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        contentH.add(txtPrecioHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 290, 50));
+
+        btnCancelarH.setText("Cancelar");
+        contentH.add(btnCancelarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 80, 30));
+
+        btnGuardarH.setText("Guardar");
+        contentH.add(btnGuardarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 80, 30));
+
+        lbImagenHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Subir.png"))); // NOI18N
+        contentH.add(lbImagenHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, -1));
+
+        btnSubirImagenH.setText("Subir Imagen");
+        contentH.add(btnSubirImagenH, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
 
         add(contentH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
@@ -68,10 +128,22 @@ public class jpHospedaje extends javax.swing.JPanel {
         contentH.repaint();
     }//GEN-LAST:event_btnSubidosHActionPerformed
 
+    private void txtNombreHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreHospedajeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreHospedajeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnCancelarH;
+    public javax.swing.JButton btnGuardarH;
     public javax.swing.JButton btnSubidosH;
+    public javax.swing.JButton btnSubirImagenH;
     public javax.swing.JPanel contentH;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel lbImagenHospedaje;
+    public javax.swing.JTextField txtDescripcionHospedaje;
+    public javax.swing.JTextField txtNombreHospedaje;
+    public javax.swing.JTextField txtPrecioHospedaje;
     // End of variables declaration//GEN-END:variables
 }
