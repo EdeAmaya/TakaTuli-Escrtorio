@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ctrlLugarTuristico;
+import Modelo.LugarTuristico;
 import java.awt.BorderLayout;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
@@ -20,6 +22,14 @@ public class jpLugarTuristico extends javax.swing.JPanel {
     public jpLugarTuristico() {
         initComponents();
     }
+    
+    public static void initjpLugarTuristico(){
+        LugarTuristico Modelo = new LugarTuristico();
+        jpLugarTuristico Vista = new jpLugarTuristico();
+        ctrlLugarTuristico controlador = new ctrlLugarTuristico(Vista,Modelo);
+        
+        Vista.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,17 +41,20 @@ public class jpLugarTuristico extends javax.swing.JPanel {
     private void initComponents() {
 
         contentLT = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnSubidosLT = new javax.swing.JButton();
+        txtNombreLugarT = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtDetallesLugarT = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtTipoLugarT = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnGuardarLugarT = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contentLT.setBackground(new java.awt.Color(255, 255, 255));
         contentLT.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Lugares Turisticos");
-        contentLT.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
 
         btnSubidosLT.setBackground(new java.awt.Color(251, 212, 95));
         btnSubidosLT.setForeground(new java.awt.Color(255, 140, 0));
@@ -53,6 +66,27 @@ public class jpLugarTuristico extends javax.swing.JPanel {
             }
         });
         contentLT.add(btnSubidosLT, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 542, 156, 36));
+
+        txtNombreLugarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreLugarTActionPerformed(evt);
+            }
+        });
+        contentLT.add(txtNombreLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 550, 30));
+
+        jLabel2.setText("Nombre");
+        contentLT.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        contentLT.add(txtDetallesLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 280, 340));
+
+        jLabel3.setText("Detalles");
+        contentLT.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        contentLT.add(txtTipoLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 100, 40));
+
+        jLabel1.setText("TipoLugarTuristico");
+        contentLT.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+
+        btnGuardarLugarT.setText("Guardar");
+        contentLT.add(btnGuardarLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 100, 40));
 
         add(contentLT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
@@ -69,10 +103,20 @@ public class jpLugarTuristico extends javax.swing.JPanel {
         contentLT.repaint();
     }//GEN-LAST:event_btnSubidosLTActionPerformed
 
+    private void txtNombreLugarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreLugarTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreLugarTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnGuardarLugarT;
     public javax.swing.JButton btnSubidosLT;
     public javax.swing.JPanel contentLT;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    public javax.swing.JTextField txtDetallesLugarT;
+    public javax.swing.JTextField txtNombreLugarT;
+    public javax.swing.JTextField txtTipoLugarT;
     // End of variables declaration//GEN-END:variables
 }
