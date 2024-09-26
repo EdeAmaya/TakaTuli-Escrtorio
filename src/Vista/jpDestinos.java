@@ -5,6 +5,8 @@
 package Vista;
 
 import java.awt.BorderLayout;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -30,8 +32,8 @@ public class jpDestinos extends javax.swing.JPanel {
 
         contentD = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -51,42 +53,52 @@ public class jpDestinos extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contentD.setBackground(new java.awt.Color(255, 255, 255));
+        contentD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 140, 0));
         jLabel1.setText("¡Es hora de expandir horizontes!");
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 140, 0));
-        jLabel2.setText("Añade un destino que haga soñar a tus visitantes.");
+        contentD.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 140, 0));
         jLabel3.setText("turistico");
+        contentD.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 140, 0));
+        jLabel2.setText("Añade un destino que haga soñar a tus visitantes.");
+        contentD.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 140, 0));
         jLabel5.setText("Lugar");
+        contentD.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 140, 0));
         jLabel12.setText("viaje");
+        contentD.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 140, 0));
         jLabel11.setText("Paquetes de");
+        contentD.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 140, 0));
         jLabel6.setText("Hospedaje");
+        contentD.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 140, 0));
         jLabel8.setText("Restaurante");
+        contentD.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 22)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 140, 0));
         jLabel10.setText("Subidos");
+        contentD.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
 
         btnLugarTuristico.setBackground(new java.awt.Color(251, 212, 95));
         btnLugarTuristico.setBorder(null);
@@ -95,6 +107,7 @@ public class jpDestinos extends javax.swing.JPanel {
                 btnLugarTuristicoActionPerformed(evt);
             }
         });
+        contentD.add(btnLugarTuristico, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 260, 110));
 
         btnHospedaje.setBackground(new java.awt.Color(251, 212, 95));
         btnHospedaje.setBorder(null);
@@ -103,6 +116,7 @@ public class jpDestinos extends javax.swing.JPanel {
                 btnHospedajeActionPerformed(evt);
             }
         });
+        contentD.add(btnHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 260, 110));
 
         btnSubidos.setBackground(new java.awt.Color(251, 212, 95));
         btnSubidos.setBorder(null);
@@ -111,6 +125,7 @@ public class jpDestinos extends javax.swing.JPanel {
                 btnSubidosActionPerformed(evt);
             }
         });
+        contentD.add(btnSubidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 250, 50));
 
         btnPaqueteViaje.setBackground(new java.awt.Color(251, 212, 95));
         btnPaqueteViaje.setBorder(null);
@@ -119,6 +134,7 @@ public class jpDestinos extends javax.swing.JPanel {
                 btnPaqueteViajeActionPerformed(evt);
             }
         });
+        contentD.add(btnPaqueteViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 260, 110));
 
         btnRestaurante.setBackground(new java.awt.Color(251, 212, 95));
         btnRestaurante.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -129,95 +145,7 @@ public class jpDestinos extends javax.swing.JPanel {
                 btnRestauranteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout contentDLayout = new javax.swing.GroupLayout(contentD);
-        contentD.setLayout(contentDLayout);
-        contentDLayout.setHorizontalGroup(
-            contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentDLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jLabel1))
-            .addGroup(contentDLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel2))
-            .addGroup(contentDLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLugarTuristico, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))))
-                .addGap(70, 70, 70)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6))
-                    .addComponent(btnHospedaje, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(contentDLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8)))
-                .addGap(70, 70, 70)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPaqueteViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)))))
-            .addGroup(contentDLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSubidos, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel10))))
-        );
-        contentDLayout.setVerticalGroup(
-            contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentDLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addGap(51, 51, 51)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel3))
-                    .addComponent(btnLugarTuristico, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel5))
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel6))
-                    .addComponent(btnHospedaje, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel8))
-                    .addComponent(btnPaqueteViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel11))
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel12)))
-                .addGap(80, 80, 80)
-                .addGroup(contentDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSubidos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentDLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel10))))
-        );
+        contentD.add(btnRestaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 260, 110));
 
         add(contentD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
@@ -228,21 +156,23 @@ public class jpDestinos extends javax.swing.JPanel {
         pl.setLocation(0, 0);    // Establece la ubicación 
     
        contentD.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       contentD.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       contentD.setLayout(new AbsoluteLayout());
+       contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        contentD.repaint(); 
     }//GEN-LAST:event_btnSubidosActionPerformed
 
     private void btnLugarTuristicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLugarTuristicoActionPerformed
         // TODO add your handling code here:
-        jpLugarTuristico pl = new jpLugarTuristico(); // Crea una instancia 
-        pl.setSize(830, 600);    // Establece el tamaño  
-        pl.setLocation(0, 0);    // Establece la ubicación 
-    
+         // Crea una instancia del panel
+    jpLugarTuristico pl = new jpLugarTuristico(); 
+    pl.setSize(830, 600);    // Establece el tamaño  
+    pl.setLocation(0, 0);    // Establece la ubicación 
        contentD.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       contentD.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       contentD.setLayout(new AbsoluteLayout());
+       contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
-       contentD.repaint(); 
+       contentD.repaint();         // Redibuja el contenedor
     }//GEN-LAST:event_btnLugarTuristicoActionPerformed
 
     private void btnHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospedajeActionPerformed
@@ -250,9 +180,9 @@ public class jpDestinos extends javax.swing.JPanel {
         jpHospedaje pl = new jpHospedaje(); // Crea una instancia 
         pl.setSize(830, 600);    // Establece el tamaño  
         pl.setLocation(0, 0);    // Establece la ubicación 
-    
        contentD.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       contentD.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       contentD.setLayout(new AbsoluteLayout());
+       contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        contentD.repaint(); 
     }//GEN-LAST:event_btnHospedajeActionPerformed
@@ -264,7 +194,8 @@ public class jpDestinos extends javax.swing.JPanel {
         pl.setLocation(0, 0);    // Establece la ubicación 
     
        contentD.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       contentD.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       contentD.setLayout(new AbsoluteLayout());
+       contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        contentD.repaint(); 
     }//GEN-LAST:event_btnRestauranteActionPerformed
@@ -276,7 +207,8 @@ public class jpDestinos extends javax.swing.JPanel {
         pl.setLocation(0, 0);    // Establece la ubicación 
     
        contentD.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       contentD.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       contentD.setLayout(new AbsoluteLayout());
+       contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        contentD.repaint(); 
     }//GEN-LAST:event_btnPaqueteViajeActionPerformed

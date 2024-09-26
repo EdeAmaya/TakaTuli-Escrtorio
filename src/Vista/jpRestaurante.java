@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+
 /**
  *
  * @author edeni
@@ -27,16 +30,48 @@ public class jpRestaurante extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        contentR = new javax.swing.JPanel();
+        btnSubidosR = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Restaurante");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 287, -1, -1));
+
+        contentR.setBackground(new java.awt.Color(255, 255, 255));
+        contentR.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSubidosR.setBackground(new java.awt.Color(251, 212, 95));
+        btnSubidosR.setForeground(new java.awt.Color(255, 140, 0));
+        btnSubidosR.setText("Subidos");
+        btnSubidosR.setBorder(null);
+        btnSubidosR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubidosRActionPerformed(evt);
+            }
+        });
+        contentR.add(btnSubidosR, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 542, 156, 36));
+
+        add(contentR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSubidosRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubidosRActionPerformed
+        jpSubidos pl = new jpSubidos(); // Crea una instancia
+        pl.setSize(830, 600);    // Establece el tamaño
+        pl.setLocation(0, 0);    // Establece la ubicación
+
+        contentR.removeAll();      // Elimina todos los componentes del contenedor 'content'
+        contentR.setLayout(new AbsoluteLayout());
+        contentR.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
+        contentR.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
+        contentR.repaint();
+    }//GEN-LAST:event_btnSubidosRActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnSubidosR;
+    public javax.swing.JPanel contentR;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

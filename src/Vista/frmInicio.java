@@ -6,6 +6,8 @@ package Vista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 
 
@@ -127,7 +129,8 @@ public class frmInicio extends javax.swing.JFrame {
         pl.setLocation(0, 0);    // Establece la ubicación 
     
        content.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       content.add(pl, BorderLayout.CENTER); // Agrega el nuevo panel al centro del contenedor
+       content.setLayout(new AbsoluteLayout());
+       content.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        content.repaint(); 
     }//GEN-LAST:event_btnDestinosActionPerformed

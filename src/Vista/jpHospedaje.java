@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+
 /**
  *
  * @author edeni
@@ -27,16 +30,48 @@ public class jpHospedaje extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        contentH = new javax.swing.JPanel();
+        btnSubidosH = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Hospedaje");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 269, -1, -1));
+
+        contentH.setBackground(new java.awt.Color(255, 255, 255));
+        contentH.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSubidosH.setBackground(new java.awt.Color(251, 212, 95));
+        btnSubidosH.setForeground(new java.awt.Color(255, 140, 0));
+        btnSubidosH.setText("Subidos");
+        btnSubidosH.setBorder(null);
+        btnSubidosH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubidosHActionPerformed(evt);
+            }
+        });
+        contentH.add(btnSubidosH, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 542, 156, 36));
+
+        add(contentH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSubidosHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubidosHActionPerformed
+        jpSubidos pl = new jpSubidos(); // Crea una instancia
+        pl.setSize(830, 600);    // Establece el tamaño
+        pl.setLocation(0, 0);    // Establece la ubicación
+
+        contentH.removeAll();      // Elimina todos los componentes del contenedor 'content'
+        contentH.setLayout(new AbsoluteLayout());
+        contentH.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
+        contentH.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
+        contentH.repaint();
+    }//GEN-LAST:event_btnSubidosHActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnSubidosH;
+    public javax.swing.JPanel contentH;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
