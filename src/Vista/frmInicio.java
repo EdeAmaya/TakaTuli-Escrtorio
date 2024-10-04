@@ -20,6 +20,7 @@ public class frmInicio extends javax.swing.JFrame {
     /**
      * Creates new form frmInicio
      */
+    
     public frmInicio() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(jlbFondo,"src/Img/image (8).png");
@@ -45,6 +46,7 @@ public class frmInicio extends javax.swing.JFrame {
         btnChat = new javax.swing.JButton();
         jlbLogo = new javax.swing.JLabel();
         jlbFondo = new javax.swing.JLabel();
+        contentDos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 680));
@@ -55,19 +57,8 @@ public class frmInicio extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         content.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
-        content.setLayout(contentLayout);
-        contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
-        );
-        contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 830, 600));
+        content.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 440, 600));
 
         btnAjustes.setBackground(new java.awt.Color(130, 204, 25));
         btnAjustes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -113,6 +104,10 @@ public class frmInicio extends javax.swing.JFrame {
         jlbFondo.setToolTipText("");
         jPanel1.add(jlbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 680));
 
+        contentDos.setBackground(new java.awt.Color(51, 255, 51));
+        contentDos.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(contentDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 340, 590));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,17 +125,20 @@ public class frmInicio extends javax.swing.JFrame {
     private void btnDestinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDestinosActionPerformed
         // TODO add your handling code here:
         jpDestinos pl = new jpDestinos(); // Crea una instancia 
-        pl.setSize(830, 600);    // Establece el tamaño  
-        pl.setLocation(0, 0);    // Establece la ubicación 
+        
+      //  pl.setSize(830, 600);    // Establece el tamaño  
+        //pl.setLocation(0, 0);    // Establece la ubicación 
        content.removeAll();      // Elimina todos los componentes del contenedor 'content'
-       content.setLayout(new AbsoluteLayout());
-       content.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
+      // content.setLayout(new AbsoluteLayout());
+       //content.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
+       content.add(pl);
        content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        content.repaint(); 
     }//GEN-LAST:event_btnDestinosActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnInicioActionPerformed
 
    
@@ -158,6 +156,7 @@ public class frmInicio extends javax.swing.JFrame {
     public javax.swing.JButton btnDestinos;
     public javax.swing.JButton btnInicio;
     public javax.swing.JPanel content;
+    public javax.swing.JPanel contentDos;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlbFondo;
     public javax.swing.JLabel jlbLogo;

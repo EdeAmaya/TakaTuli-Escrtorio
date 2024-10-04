@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
  */
   public class ctrlHospedaje implements MouseListener {
     
-    private jpHospedaje vista;
+    private jpHospedaje Vista;
     private Hospedaje modelo;
     
       public ctrlHospedaje(jpHospedaje vista, Hospedaje modelo){
-        this.vista = vista;
+        this.Vista = vista;
         this.modelo = modelo;
         
       
@@ -35,38 +35,38 @@ import javax.swing.JOptionPane;
         vista.btnGuardarH.addMouseListener(this);
        
         vista.btnCancelarH.addMouseListener(this);
-        vista.contentH.add(vista);
+        //vista.contentH.add(Vista);
         
     
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-           if(e.getSource() == vista.btnGuardarH){
+           if(e.getSource() == Vista.btnGuardarH){
                boolean validacionesCorrectas = true;
           
-          if(vista.txtNombreHospedaje.getText().isEmpty()||vista.txtPrecioHospedaje.getText().isEmpty()||vista.txtDescripcionHospedaje.getText().isEmpty()){
-                JOptionPane.showMessageDialog(vista, "Llene los campos");
+          if(Vista.txtNombreHospedaje.getText().isEmpty()||Vista.txtPrecioHospedaje.getText().isEmpty()||Vista.txtDescripcionHospedaje.getText().isEmpty()){
+                JOptionPane.showMessageDialog(Vista, "Llene los campos");
                 validacionesCorrectas = false;
             } else {
           
               try {
-                double PrecioNumerico = Double.parseDouble(vista.txtPrecioHospedaje.getText());
+                double PrecioNumerico = Double.parseDouble(Vista.txtPrecioHospedaje.getText());
                 if(PrecioNumerico < 0 ){
-                    JOptionPane.showMessageDialog(vista, "Ingrese un Precio valido");
+                    JOptionPane.showMessageDialog(Vista, "Ingrese un Precio valido");
                     validacionesCorrectas = false;
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(vista, "Ingrese solo numeros");
+                JOptionPane.showMessageDialog(Vista, "Ingrese solo numeros");
                 validacionesCorrectas = false;
             }
           
           }    
                
            if(validacionesCorrectas){
-              modelo.setNombre_Hospedaje(vista.txtNombreHospedaje.getText());
-              modelo.setPrecio_Hospedaje(Double.parseDouble( vista.txtPrecioHospedaje.getText()));
-              modelo.setDetalles_Hospedaje(vista.txtDescripcionHospedaje.getText());          
+              modelo.setNombre_Hospedaje(Vista.txtNombreHospedaje.getText());
+              modelo.setPrecio_Hospedaje(Double.parseDouble( Vista.txtPrecioHospedaje.getText()));
+              modelo.setDetalles_Hospedaje(Vista.txtDescripcionHospedaje.getText());          
               modelo.GuardarHospedaje();
             }     
       }
@@ -74,15 +74,15 @@ import javax.swing.JOptionPane;
            
           
     
-       if (e.getSource() == vista.btnCancelarH) {
-            modelo.limpiarHospedaje(vista);
+       if (e.getSource() == Vista.btnCancelarH) {
+            modelo.limpiarHospedaje(Vista);
         }
        
     }
     
     public void actionPerformed(ActionEvent e){
  
-     if (e.getSource() == vista.btnSubirImagenH) {
+     if (e.getSource() == Vista.btnSubirImagenH) {
        
            JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("Selecciona una imagen");

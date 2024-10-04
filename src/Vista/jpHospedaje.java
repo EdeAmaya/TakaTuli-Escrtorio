@@ -40,7 +40,7 @@ public class jpHospedaje extends javax.swing.JPanel {
     public jpHospedaje() {
         
         initComponents();
-      Hospedaje Modelo = new Hospedaje();
+        Hospedaje Modelo = new Hospedaje();
         jpHospedaje Vista = this ;
         ctrlHospedaje controlador = new ctrlHospedaje(Vista,Modelo);
     }

@@ -4,13 +4,14 @@
  */
 package Vista;
 
+import Controlador.ctrlDestinos;
 import java.awt.BorderLayout;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
- * @author edeni
+ * @author edeni 
  */
 public class jpDestinos extends javax.swing.JPanel {
 
@@ -19,6 +20,9 @@ public class jpDestinos extends javax.swing.JPanel {
      */
     public jpDestinos() {
         initComponents();
+      //aqui debe ir el controlador 
+      frmInicio inicio = new frmInicio();
+        ctrlDestinos controlador = new ctrlDestinos(this, inicio);
     }
 
     /**
@@ -153,7 +157,7 @@ public class jpDestinos extends javax.swing.JPanel {
        contentD.setLayout(new AbsoluteLayout());
        contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
-       contentD.repaint(); */
+       contentD.repaint(); */  
     }//GEN-LAST:event_btnSubidosActionPerformed
 
     private void btnLugarTuristicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLugarTuristicoActionPerformed
@@ -171,10 +175,27 @@ public class jpDestinos extends javax.swing.JPanel {
 
     private void btnHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospedajeActionPerformed
         // TODO add your handling code here:
+        
+              System.err.println("se dio clic");
+       //jpHospedaje pl = new jpHospedaje(); // Crea una instancia 
+           panelRojo panel = new panelRojo();
+         //  frmInicio PantallaPrincipal = new frmInicio();
+       //frmInicio fI = new frmInicio();
+        
+     //  pl.setSize(830, 600);    // Establece el tamaño  
+       //pl.setLocation(0, 0);    // Establece la ubicación 
+    //jpDestinos pl = new jpDestinos(); // Crea una instancia 
+    //    
+      //  pl.setSize(830, 600);    // Establece el tamaño  
+        //pl.setLocation(0, 0);    // Establece la ubicación 
+      // content.setLayout(new AbsoluteLayout());
+       //content.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
+        
         /*jpHospedaje pl = new jpHospedaje(); // Crea una instancia 
         pl.setSize(830, 600);    // Establece el tamaño  
-        pl.setLocation(0, 0);    // Establece la ubicación 
-       contentD.removeAll();      // Elimina todos los componentes del contenedor 'content'
+        pl.setLocation(0, 0);   // Establece la ubicación
+        
+       content.removeAll();      // Elimina todos los componentes del contenedor 'content'
        contentD.setLayout(new AbsoluteLayout());
        contentD.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
        contentD.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
