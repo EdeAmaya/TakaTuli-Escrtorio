@@ -79,12 +79,13 @@ public class Hospedaje {
         Connection conexion = ClaseConexion.getConexion();
         try {
             //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement addHospedaje = conexion.prepareStatement("INSERT INTO tbHospedaje(UUID_Hospedaje, Nombre_Hospedaje, Precio_Hospedaje, Detalles_Hospedaje) VALUES (?, ?, ?, ?)");
+            PreparedStatement addHospedaje = conexion.prepareStatement("INSERT INTO tbHospedaje(UUID_Hospedaje, Nombre_Hospedaje, Precio_Hospedaje, Detalles_Hospedaje, Fotos_Hospedaje) VALUES (?, ?, ?, ?, ?)");
             //Establecer valores de la consulta SQL
             addHospedaje.setString(1, UUID.randomUUID().toString());
             addHospedaje.setString(2, getNombre_Hospedaje());
             addHospedaje.setDouble(3, getPrecio_Hospedaje());
             addHospedaje.setString(4, getDetalles_Hospedaje());
+            addHospedaje.setString(5, getFotos_Hospedaje());
  
             //Ejecutar la consulta
             addHospedaje.executeUpdate();

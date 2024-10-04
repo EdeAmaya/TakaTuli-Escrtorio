@@ -15,13 +15,13 @@ import java.awt.event.MouseListener;
  */
 public class ctrlLugarTuristico implements MouseListener {
     
-    private jpLugarTuristico vista;
-    private LugarTuristico modelo;
+    private jpLugarTuristico Vista;
+    private LugarTuristico Modelo;
     
     public ctrlLugarTuristico(jpLugarTuristico vista, LugarTuristico modelo){
     
-        this.vista = vista;
-        this.modelo = modelo;
+        this.Vista = vista;
+        this.Modelo = modelo;
         
         
         vista.btnGuardarLugarT.addMouseListener(this);
@@ -29,12 +29,11 @@ public class ctrlLugarTuristico implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-             if(e.getSource() == vista.btnGuardarLugarT){
+             if(e.getSource() == Vista.btnGuardarLugarT){
               
-              modelo.setNombre_LugarTuristico(vista.txtNombreLugarT.getText());
-              modelo.setDetalles_Lugar_Turistico( vista.txtDetallesLugarT.getText());
-          
-              modelo.GuardarLugarTuristico();
+              Modelo.setNombre_LugarTuristico(Vista.txtNombreLugarT.getText());
+              Modelo.setDetalles_Lugar_Turistico( Vista.txtDetallesLugarT.getText());
+              Modelo.GuardarLugarTuristico();
               
              }
     }

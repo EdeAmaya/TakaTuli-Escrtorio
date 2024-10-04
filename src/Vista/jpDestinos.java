@@ -176,9 +176,9 @@ public class jpDestinos extends javax.swing.JPanel {
     private void btnHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospedajeActionPerformed
         // TODO add your handling code here:
         
-              System.err.println("se dio clic");
+          
        //jpHospedaje pl = new jpHospedaje(); // Crea una instancia 
-           panelRojo panel = new panelRojo();
+          // panelRojo panel = new panelRojo();
          //  frmInicio PantallaPrincipal = new frmInicio();
        //frmInicio fI = new frmInicio();
         
