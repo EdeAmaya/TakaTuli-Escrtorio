@@ -62,23 +62,23 @@ public class ctrlHospedaje implements MouseListener {
 
                 try {
                     // Subir la imagen a Imgur
-                    String urlSubida = Modelo.subirImagenImgur(selectedFile);
+                    String urlSubida = Modelo.subirImagenImgBB(selectedFile);
                     // Mostrar URL en un JOptionPane
                     JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubida);
+                   // String testUrl = urlSubida.toString();
+                  //  BufferedImage img = ImageIO.read(new URL(urlSubida));
+                    System.err.println("esta es la URL" + urlSubida);
+                    //  if (img == null) {
+                    //    System.err.println("error imagen nula");
+                    //}
 
-              
+                    //  String testUrl = "https://i.imgur.com/0sYnYXc.jpeg"; // Reemplaza con una URL válida
+                    BufferedImage img = ImageIO.read(new URL(urlSubida));
+                    ImageIcon icon = new ImageIcon(img);
+                    Vista.lbImagenHospedaje.setIcon(icon);
 
-                  BufferedImage img = ImageIO.read(new URL(urlSubida));
-                  
-                   ImageIcon icon = new ImageIcon(img);
-
-            // Asignar el icono al JLabel
-            Vista.lbImagenHospedaje.setIcon(icon);
-            Vista.lbImagenHospedaje.repaint(); // 
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Error subiendo la imagen: " + ex.getMessage());
+                } catch (Exception ee) {
+                    System.err.print("este es el error" + ee);
                 }
             }
         }
