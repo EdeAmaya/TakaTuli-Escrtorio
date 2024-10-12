@@ -42,7 +42,8 @@ public class jpHospedaje extends javax.swing.JPanel {
         initComponents();
         Hospedaje Modelo = new Hospedaje();
         jpHospedaje Vista = this ;
-        ctrlHospedaje controlador = new ctrlHospedaje(Vista,Modelo);
+        frmInicio inicio = new frmInicio();
+        ctrlHospedaje controlador = new ctrlHospedaje(this,Modelo,inicio);
     }
     /*
       public static void initJPHospedaje(){
@@ -75,7 +76,6 @@ public class jpHospedaje extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contentH = new javax.swing.JPanel();
         btnSubidosH = new javax.swing.JButton();
         txtNombreHospedaje = new javax.swing.JTextField();
         txtDescripcionHospedaje = new javax.swing.JTextField();
@@ -91,9 +91,6 @@ public class jpHospedaje extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        contentH.setBackground(new java.awt.Color(255, 255, 255));
-        contentH.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         btnSubidosH.setBackground(new java.awt.Color(251, 212, 95));
         btnSubidosH.setForeground(new java.awt.Color(255, 140, 0));
         btnSubidosH.setText("Subidos");
@@ -103,7 +100,7 @@ public class jpHospedaje extends javax.swing.JPanel {
                 btnSubidosHActionPerformed(evt);
             }
         });
-        contentH.add(btnSubidosH, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 556, 150, 30));
+        add(btnSubidosH, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 556, 150, 30));
 
         txtNombreHospedaje.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreHospedaje.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
@@ -112,61 +109,51 @@ public class jpHospedaje extends javax.swing.JPanel {
                 txtNombreHospedajeActionPerformed(evt);
             }
         });
-        contentH.add(txtNombreHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 290, 50));
+        add(txtNombreHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 290, 50));
 
         txtDescripcionHospedaje.setBackground(new java.awt.Color(255, 255, 255));
         txtDescripcionHospedaje.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
-        contentH.add(txtDescripcionHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 290, 190));
+        add(txtDescripcionHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 290, 190));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setForeground(new java.awt.Color(255, 140, 0));
         jLabel2.setText("Nombre");
-        contentH.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 140, 0));
         jLabel3.setText("Precio");
-        contentH.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         txtPrecioHospedaje.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecioHospedaje.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
-        contentH.add(txtPrecioHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 290, 50));
+        add(txtPrecioHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 290, 50));
 
         btnCancelarH.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelarH.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelarH.setText("Cancelar");
-        contentH.add(btnCancelarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 100, 40));
+        add(btnCancelarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 100, 40));
 
         btnGuardarH.setBackground(new java.awt.Color(51, 153, 0));
         btnGuardarH.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarH.setText("Guardar");
-        contentH.add(btnGuardarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 100, 40));
+        add(btnGuardarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 100, 40));
 
         lbImagenHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Subir.png"))); // NOI18N
-        contentH.add(lbImagenHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
+        add(lbImagenHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
 
         btnSubirImagenH.setBackground(new java.awt.Color(255, 140, 0));
         btnSubirImagenH.setForeground(new java.awt.Color(255, 255, 255));
         btnSubirImagenH.setText("Subir Imagen");
-        contentH.add(btnSubirImagenH, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 130, 40));
+        add(btnSubirImagenH, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 140, 0));
         jLabel1.setText("Subir Hospedajes");
-        contentH.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
-
-        add(contentH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubidosHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubidosHActionPerformed
-        jpSubidos pl = new jpSubidos(); // Crea una instancia
-        pl.setSize(830, 600);    // Establece el tamaño
-        pl.setLocation(0, 0);    // Establece la ubicación
-
-        contentH.removeAll();      // Elimina todos los componentes del contenedor 'content'
-        contentH.setLayout(new AbsoluteLayout());
-        contentH.add(pl, new AbsoluteConstraints(0, 0, 830, 600)); // Agrega el nuevo panel al centro del contenedor
-        contentH.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
-        contentH.repaint();
+        
     }//GEN-LAST:event_btnSubidosHActionPerformed
 
     private void txtNombreHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreHospedajeActionPerformed
@@ -179,7 +166,6 @@ public class jpHospedaje extends javax.swing.JPanel {
     public javax.swing.JButton btnGuardarH;
     public javax.swing.JButton btnSubidosH;
     public javax.swing.JButton btnSubirImagenH;
-    public javax.swing.JPanel contentH;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ctrlSubidos;
+import Modelo.Subidos;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -30,6 +32,9 @@ public class jpSubidos extends javax.swing.JPanel {
      */
     public jpSubidos() {
         initComponents();
+        Subidos Modelo = new Subidos();
+        jpSubidos Vista = this ;
+        ctrlSubidos controlador = new ctrlSubidos(this,Modelo);
     }
     
 
@@ -47,8 +52,9 @@ public class jpSubidos extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Subidos");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

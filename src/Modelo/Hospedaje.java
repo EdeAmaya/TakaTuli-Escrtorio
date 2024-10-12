@@ -117,6 +117,8 @@ public class Hospedaje {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
     }
+    
+    
 
     public void EliminarHospedaje(JTable tabla) {
         //Creamos una variable igual a ejecutar el método de la clase de conexión

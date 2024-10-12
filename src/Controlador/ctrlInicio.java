@@ -30,8 +30,7 @@ public class ctrlInicio implements MouseListener {
        Vista.content.removeAll();      // Elimina todos los componentes del contenedor 'content'
        Vista.content.add(pl);
        Vista.content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
-       Vista.content.repaint(); 
-            
+       Vista.content.repaint();       
      }
         
     }

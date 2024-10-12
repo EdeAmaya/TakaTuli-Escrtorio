@@ -7,6 +7,7 @@ package Controlador;
 import Vista.frmInicio;
 import Vista.jpDestinos;
 import Vista.jpHospedaje;
+import Vista.jpSubidos;
 import Vista.panelRojo;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -36,12 +37,19 @@ public class ctrlDestinos implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == vista.btnHospedaje) {
-            jpHospedaje pl = new jpHospedaje(); // Crea una instancia 
+            jpHospedaje p1 = new jpHospedaje(); // Crea una instancia 
             ctrlInicio.Vista.content.removeAll();      // Elimina todos los componentes del contenedor 'content'
-            ctrlInicio.Vista.content.add(pl); // Agrega el nuevo panel al centro del contenedor
+            ctrlInicio.Vista.content.add(p1); // Agrega el nuevo panel al centro del contenedor
             ctrlInicio.Vista.content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
             ctrlInicio.Vista.content.repaint();
-
+        }
+        
+          if (e.getSource() == vista.btnSubidos) {
+            jpSubidos p2 = new jpSubidos(); // Crea una instancia 
+            ctrlInicio.Vista.content.removeAll();      // Elimina todos los componentes del contenedor 'content'
+            ctrlInicio.Vista.content.add(p2); // Agrega el nuevo panel al centro del contenedor
+            ctrlInicio.Vista.content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
+            ctrlInicio.Vista.content.repaint();
         }
     }
 
