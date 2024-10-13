@@ -1,24 +1,44 @@
 package Modelo;
 
-import Vista.frmHospedaje;
+import Vista.jpHospedaje;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Base64;
 import java.util.UUID;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.json.JSONObject;
 
 public class Hospedaje {
-    
+
     String UUID_Hospedaje;
     String Nombre_Hospedaje;
     double Precio_Hospedaje;
     String Detalles_Hospedaje;
-    
-    
+    String Fotos_Hospedaje;
+
+    public String getFotos_Hospedaje() {
+        return Fotos_Hospedaje;
+    }
+
+    public void setFotos_Hospedaje(String Fotos_Hospedaje) {
+        this.Fotos_Hospedaje = Fotos_Hospedaje;
+    }
+
     public String getUUID_Hospedaje() {
         return UUID_Hospedaje;
     }
@@ -50,30 +70,29 @@ public class Hospedaje {
     public void setDetalles_Hospedaje(String Detalles_Hospedaje) {
         this.Detalles_Hospedaje = Detalles_Hospedaje;
     }
-    
-    
-      public void GuardarHospedaje() {
+
+    public void GuardarHospedaje() {
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
         try {
             //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement addHospedaje = conexion.prepareStatement("INSERT INTO tbHospedaje(UUID_Hospedaje, Nombre_Hospedaje, Precio_Hospedaje, Detalles_Hospedaje) VALUES (?, ?, ?, ?)");
+            PreparedStatement addHospedaje = conexion.prepareStatement("INSERT INTO tbHospedaje(UUID_Hospedaje, Nombre_Hospedaje, Precio_Hospedaje, Detalles_Hospedaje, Fotos_Hospedaje) VALUES (?, ?, ?, ?, ?)");
             //Establecer valores de la consulta SQL
             addHospedaje.setString(1, UUID.randomUUID().toString());
             addHospedaje.setString(2, getNombre_Hospedaje());
             addHospedaje.setDouble(3, getPrecio_Hospedaje());
             addHospedaje.setString(4, getDetalles_Hospedaje());
- 
+            addHospedaje.setString(5, getFotos_Hospedaje());
+
             //Ejecutar la consulta
             addHospedaje.executeUpdate();
- 
+
         } catch (SQLException ex) {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }
     }
-      
-      
-       public void MostrarHospedaje(JTable tabla) {
+
+    public void MostrarHospedaje(JTable tabla) {
         //Creamos una variable de la clase de conexion
         Connection conexion = ClaseConexion.getConexion();
         //Definimos el modelo de la tabla
@@ -87,9 +106,9 @@ public class Hospedaje {
             //Recorremos el ResultSet
             while (rs.next()) {
                 //Llenamos el modelo por cada vez que recorremos el resultSet
-                modeloPinulito.addRow(new Object[]{rs.getString("UUID_Hospedaje"), 
-                    rs.getString("Nombre_Hospedaje"), 
-                    rs.getDouble("Precio_Hospedaje"), 
+                modeloPinulito.addRow(new Object[]{rs.getString("UUID_Hospedaje"),
+                    rs.getString("Nombre_Hospedaje"),
+                    rs.getDouble("Precio_Hospedaje"),
                     rs.getString("Detalles_Hospedaje")});
             }
             //Asignamos el nuevo modelo lleno a la tabla
@@ -98,10 +117,10 @@ public class Hospedaje {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
     }
-       
-       
-       
-          public void EliminarHospedaje(JTable tabla) {
+    
+    
+
+    public void EliminarHospedaje(JTable tabla) {
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
 
@@ -120,9 +139,8 @@ public class Hospedaje {
             System.out.println("este es el error metodo de eliminar" + e);
         }
     }
-          
-          
-             public void ActualizarHospedaje(JTable tabla) {
+
+    public void ActualizarHospedaje(JTable tabla) {
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
 
@@ -151,32 +169,74 @@ public class Hospedaje {
             System.out.println("no");
         }
     }
-             
-             
-             public void limpiarHospedaje(frmHospedaje vista) {
-        vista.txtNombreH.setText("");
-        vista.txtPrecioH1.setText("");
-        vista.txtDescripcionH.setText("");
-        
-        }
-             
-                public void cargarDatosTabla(frmHospedaje vista) {
-        // Obtén la fila seleccionada 
-        int filaSeleccionada = vista.jtbHospedaje.getSelectedRow();
 
-        // Debemos asegurarnos que haya una fila seleccionada antes de acceder a sus valores
-        if (filaSeleccionada != -1) {
-            String UUIDDeTb = vista.jtbHospedaje.getValueAt(filaSeleccionada, 0).toString();
-            String NombreDeTB = vista.jtbHospedaje.getValueAt(filaSeleccionada, 1).toString();
-            String EdadDeTb = vista.jtbHospedaje.getValueAt(filaSeleccionada, 2).toString();
-            String EspecialidadDeTB = vista.jtbHospedaje.getValueAt(filaSeleccionada, 3).toString();
+    public void limpiarHospedaje(jpHospedaje vista) {
+        vista.txtNombreHospedaje.setText("");
+        vista.txtPrecioHospedaje.setText("");
+        vista.txtDescripcionHospedaje.setText("");
 
-            // Establece los valores en los campos de texto
-            vista.txtNombreH.setText(NombreDeTB);
-            vista.txtPrecioH1.setText(EdadDeTb);
-            vista.txtDescripcionH.setText(EspecialidadDeTB);
-        }
     }
-  
-    
+
+    /*
+        public  String subirImagenImgur(File imageFile) throws IOException, ParseException {
+        // Cargar la imagen y convertirla en Base64
+        byte[] fileContent = Files.readAllBytes(imageFile.toPath());
+        String encodedImage = Base64.getEncoder().encodeToString(fileContent);
+
+        // URL de la API de Imgur
+        String uploadUrl = "https://api.imgur.com/3/image";
+
+        // Crear un cliente HTTP
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost uploadFile = new HttpPost(uploadUrl);
+
+        // Configurar las cabeceras para autenticar la API de Imgur
+        uploadFile.addHeader("Authorization", "Client-ID cd3fcb280cd26f9");
+
+        // Crear el JSON para el body de la petición
+        JSONObject json = new JSONObject();
+        json.put("image", encodedImage);
+
+        // Establecer el JSON como entidad de la petición
+        StringEntity entity = new StringEntity(json.toString());
+        uploadFile.setEntity(entity);
+        uploadFile.addHeader("Content-Type", "application/json");
+
+        // Ejecutar la solicitud de subida
+        CloseableHttpResponse response = httpClient.execute(uploadFile);
+        String jsonResponse = EntityUtils.toString(response.getEntity());
+        
+        // Analizar la respuesta JSON para obtener la URL de la imagen
+        JSONObject responseObject = new JSONObject(jsonResponse);
+        String uploadedUrl = responseObject.getJSONObject("data").getString("link");
+        
+        response.close();
+        return uploadedUrl;
+    }
+             
+     */
+    public String subirImagenImgBB(File imageFile) throws IOException, ParseException {
+        String apiKey = "79e54927db95eac867263fd0bf4d6e0e"; // Reemplaza con tu API Key
+        String uploadUrl = "https://api.imgbb.com/1/upload";
+
+        // Crear un cliente HTTP
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost uploadFile = new HttpPost(uploadUrl);
+
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.addTextBody("key", apiKey);
+        builder.addBinaryBody("image", imageFile);
+
+        uploadFile.setEntity(builder.build());
+
+        CloseableHttpResponse response = httpClient.execute(uploadFile);
+        String jsonResponse = EntityUtils.toString(response.getEntity());
+
+        JSONObject responseObject = new JSONObject(jsonResponse);
+        String uploadedUrl = responseObject.getJSONObject("data").getString("url");
+
+        response.close();
+        return uploadedUrl;
+    }
+
 }
