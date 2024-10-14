@@ -6,35 +6,33 @@ package Vista;
 
 import Controlador.ctrlSubidos;
 import Modelo.Subidos;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
  * @author edeni
  */
+
+import Tipografias.Fuentes;
+
 public class jpSubidos extends javax.swing.JPanel {
 
     /**
      * Creates new form jpSubidos
      */
+    Fuentes tipoFuente;
     public jpSubidos() {
         initComponents();
         Subidos Modelo = new Subidos();
         jpSubidos Vista = this ;
         ctrlSubidos controlador = new ctrlSubidos(this,Modelo);
+        
+        
+        //Poner tipografia
+        tipoFuente = new Fuentes();
+        jTituloD.setFont(tipoFuente.fuente(tipoFuente.Baloo,0,30));
+        jSubtituloD.setFont(tipoFuente.fuente(tipoFuente.BBhaina,0,14));
+        
+        
     }
     
 
@@ -47,18 +45,24 @@ public class jpSubidos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jTituloD = new javax.swing.JLabel();
+        jSubtituloD = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Subidos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        jTituloD.setForeground(new java.awt.Color(255, 140, 0));
+        jTituloD.setText("Mis Destinos");
+        add(jTituloD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 180, 30));
+
+        jSubtituloD.setForeground(new java.awt.Color(255, 140, 0));
+        jSubtituloD.setText("Gestiona, ajusta y asegúrate de que cada uno inspire a tus viajeros.");
+        add(jSubtituloD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jSubtituloD;
+    public javax.swing.JLabel jTituloD;
     // End of variables declaration//GEN-END:variables
 }

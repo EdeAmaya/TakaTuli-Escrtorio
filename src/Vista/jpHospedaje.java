@@ -102,7 +102,6 @@ public class jpHospedaje extends javax.swing.JPanel {
         });
         add(btnSubidosH, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 556, 150, 30));
 
-        txtNombreHospedaje.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreHospedaje.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
         txtNombreHospedaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +110,6 @@ public class jpHospedaje extends javax.swing.JPanel {
         });
         add(txtNombreHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 290, 50));
 
-        txtDescripcionHospedaje.setBackground(new java.awt.Color(255, 255, 255));
         txtDescripcionHospedaje.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
         add(txtDescripcionHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 290, 190));
 
@@ -124,7 +122,6 @@ public class jpHospedaje extends javax.swing.JPanel {
         jLabel3.setText("Precio");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
-        txtPrecioHospedaje.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecioHospedaje.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
         add(txtPrecioHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 290, 50));
 
@@ -144,6 +141,11 @@ public class jpHospedaje extends javax.swing.JPanel {
         btnSubirImagenH.setBackground(new java.awt.Color(255, 140, 0));
         btnSubirImagenH.setForeground(new java.awt.Color(255, 255, 255));
         btnSubirImagenH.setText("Subir Imagen");
+        btnSubirImagenH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubirImagenHActionPerformed(evt);
+            }
+        });
         add(btnSubirImagenH, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
@@ -159,6 +161,10 @@ public class jpHospedaje extends javax.swing.JPanel {
     private void txtNombreHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreHospedajeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreHospedajeActionPerformed
+
+    private void btnSubirImagenHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirImagenHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSubirImagenHActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

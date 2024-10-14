@@ -70,7 +70,8 @@ public class ctrlHospedaje implements MouseListener {
             fileChooser.setDialogTitle("Selecciona una imagen");
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             int result = fileChooser.showOpenDialog(null);
-
+            
+            
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
 
