@@ -48,7 +48,7 @@ public class ctrlDestinos implements MouseListener {
             jpSubidos p2 = new jpSubidos(); // Crea una instancia 
             ctrlInicio.Vista.content.removeAll();      // Elimina todos los componentes del contenedor 'content'
             ctrlInicio.Vista.content.add(p2); // Agrega el nuevo panel al centro del contenedor
-            ctrlInicio.Vista.content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
+            ctrlInicio.Vista.content.revalidate(); // Vuelve a validar el contenedor para que se ajuste a los cambios
             ctrlInicio.Vista.content.repaint();
         }
     }

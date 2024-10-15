@@ -18,7 +18,7 @@ public class ctrlLogin implements MouseListener{
 
         vista.btnIniciarSesion.addMouseListener(this);
         vista.btnIrARegistro.addMouseListener(this);
-        vista.btnRecuperarContraseña.addMouseListener(this);   
+        vista.btnIrARegistro.addMouseListener(this);   
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ctrlLogin implements MouseListener{
              vista.dispose();
         }
         
-        if(e.getSource() == vista.btnRecuperarContraseña){
+        if(e.getSource() == vista.btnIrARegistro){
             Vista.frmRecuperacion.initFrmRecuperacion();
              vista.dispose();
         }
