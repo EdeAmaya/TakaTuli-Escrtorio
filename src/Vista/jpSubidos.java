@@ -51,6 +51,7 @@ public class jpSubidos extends javax.swing.JPanel {
         // Llama al método para cargar y mostrar los datos
         navegacionHospedaje();
         mostrarDatosHospedaje();
+        mostrarDatosResta();
         // Aquí agregamos el mouse listener
         btnVer1.addMouseListener(controlador); // Vincula el listener para btnVer1
         btnVer2.addMouseListener(controlador); // Vincula el listener para btnVer2
@@ -158,6 +159,88 @@ public class jpSubidos extends javax.swing.JPanel {
         }
         });
     }
+    
+    
+    
+    
+    // Método para mostrar los datos en la vista
+    public void mostrarDatosResta() {
+        //garantiza que el código se ejecute después de que el GUI esté visible.
+        SwingUtilities.invokeLater(() -> {
+        // Manejo de la excepción: mostrar una imagen por defecto y datos del array
+        try {
+            datos = controlador.MostrarHospedajeCtrl();
+            /*Imagen por defecto*/
+            BufferedImage imgDefault = ImageIO.read(getClass().getResource("/Img/default.jpg"));
+            Image imgDefaultRedimensionada = imgDefault.getScaledInstance(lblimg1.getWidth(), lblimg1.getHeight(), Image.SCALE_AREA_AVERAGING);
+            // Verificar si datos no está vacío
+            if (!isDatosVacio(datos)) {
+                // Asumiendo que hay al menos 3 registros para mostrar
+                for (int i = 0; i < 3; i++) {
+                    // Asignar el nombre del hospedaje a los JLabel correspondientes
+                    String nombreHospedaje;
+                    String id = null;  // Inicializa id
+
+                    // Asegúrate de que estás dentro del rango de datos
+                    if (i < datos.length) {
+                        id = (String) datos[i][0]; // Obtener UUID
+                        nombreHospedaje = (String) datos[i][1]; // Obtener nombre
+                    } else {
+                        nombreHospedaje = "No data"; // Asignar "No data" si no hay datos
+                    }
+
+                    // Asignar el UUID y el título
+                    switch (i) {
+                        case 0:
+                            UUID1 = (id != null) ? id : "";
+                            lbltitulo1.setText(nombreHospedaje);
+                            break;
+                        case 1:
+                            UUID2 = (id != null) ? id : "";
+                            lbltitulo2.setText(nombreHospedaje);
+                            break;
+                        case 2:
+                            UUID3 = (id != null) ? id : "";
+                            lbltitulo3.setText(nombreHospedaje);
+                            break;
+                    }
+                    // Cargar la imagen
+                    String urlImagen = (String) datos[i][4]; // Obtener la URL de la imagen
+                    try {
+                        BufferedImage imgOriginal = ImageIO.read(new URL(urlImagen)); // Cambia según cómo estés guardando las imágenes
+                        Image imgRedimensionada = imgOriginal.getScaledInstance(lblimg1.getWidth(), lblimg1.getHeight(), Image.SCALE_AREA_AVERAGING);
+                        // Asignar la imagen redimensionada a los JLabel correspondientes
+                        if (i == 0) {
+                            lblimg1.setIcon(new ImageIcon(imgRedimensionada));
+                        } else if (i == 1) {
+                            lblimg2.setIcon(new ImageIcon(imgRedimensionada));
+                        } else if (i == 2) {
+                            lblimg3.setIcon(new ImageIcon(imgRedimensionada));
+                        }
+                    } catch (IOException ex) {
+                        if (i == 0) {
+                            lblimg1.setIcon(new ImageIcon(imgDefaultRedimensionada));
+                        } else if (i == 1) {
+                            lblimg2.setIcon(new ImageIcon(imgDefaultRedimensionada));
+                        } else if (i == 2) {
+                            lblimg3.setIcon(new ImageIcon(imgDefaultRedimensionada));
+                        }
+                        System.out.println("No se pudo cargar la imagen desde la URL: " + urlImagen);
+                    }
+                }
+            } else {
+                // Si no hay datos, puedes establecer imágenes por defecto
+                limpiarDatos(imgDefaultRedimensionada);
+            }
+            recalibrarH();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        });
+    }
+    
+    
+    
 
     private void limpiarDatos(Image imgDefaultRedimensionada) {
         // Si no hay datos, puedes establecer imágenes por defecto
@@ -367,7 +450,7 @@ public class jpSubidos extends javax.swing.JPanel {
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         lblprevH.setText("prev");
-        lblprevH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblprevH.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel2.add(lblprevH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 50, 50));
         lblprevH.getAccessibleContext().setAccessibleName("lblprevH");
 
@@ -377,7 +460,7 @@ public class jpSubidos extends javax.swing.JPanel {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblnextH.setText("next");
-        lblnextH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblnextH.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel4.add(lblnextH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 50, 50));
         lblnextH.getAccessibleContext().setAccessibleName("lblnextH");
         lblnextH.getAccessibleContext().setAccessibleDescription("");
@@ -441,8 +524,8 @@ public class jpSubidos extends javax.swing.JPanel {
         jPanel12.setBackground(new java.awt.Color(250, 247, 202));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblnextR.setText("jLabel12");
-        lblnextR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblnextR.setText("next2");
+        lblnextR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel12.add(lblnextR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 50, 50));
 
         jLabel19.setText("Siguiente");
@@ -527,7 +610,7 @@ public class jpSubidos extends javax.swing.JPanel {
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblnextL.setText("jLabel12");
-        lblnextL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblnextL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel13.add(lblnextL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 50, 50));
 
         jLabel21.setText("Anterior");
@@ -554,7 +637,7 @@ public class jpSubidos extends javax.swing.JPanel {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblprevL.setText("jLabel12");
-        lblprevL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblprevL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel8.add(lblprevL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 50, 50));
 
         jLabel17.setText("Anterior");
@@ -565,8 +648,8 @@ public class jpSubidos extends javax.swing.JPanel {
         jPanel17.setBackground(new java.awt.Color(250, 247, 202));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblprevR1.setText("jLabel12");
-        lblprevR1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblprevR1.setText("prevR");
+        lblprevR1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel17.add(lblprevR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 50, 50));
 
         jLabel22.setText("Anterior");

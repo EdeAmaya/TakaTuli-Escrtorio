@@ -40,6 +40,10 @@ public class jpRestaurante extends javax.swing.JPanel {
         txtDetallesLugarT1 = new javax.swing.JTextField();
         txtDetallesLugarT2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jbtnGuardar = new javax.swing.JButton();
+        jbtnCancelar = new javax.swing.JButton();
+        jbtnSubirMenu = new javax.swing.JButton();
+        jbtnsubirResta = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,48 +60,62 @@ public class jpRestaurante extends javax.swing.JPanel {
                 btnSubidosRActionPerformed(evt);
             }
         });
-        contentR.add(btnSubidosR, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 542, 156, 36));
+        contentR.add(btnSubidosR, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 156, 36));
 
-        txtNombreLugarT.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreLugarT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
         txtNombreLugarT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreLugarTActionPerformed(evt);
             }
         });
-        contentR.add(txtNombreLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 590, 40));
+        contentR.add(txtNombreLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 590, 40));
 
         jLabel2.setForeground(new java.awt.Color(255, 140, 0));
         jLabel2.setText("Fotos Restaurante");
-        contentR.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
+        contentR.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 140, 0));
         jLabel6.setText("Fotos Menu");
-        contentR.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
+        contentR.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 140, 0));
         jLabel3.setText("Nombre");
-        contentR.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        contentR.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 140, 0));
-        jLabel4.setText("Fotos Menu");
-        contentR.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
+        jLabel4.setText("Detalles Restaurante");
+        contentR.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
 
-        txtDetallesLugarT.setBackground(new java.awt.Color(255, 255, 255));
         txtDetallesLugarT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
-        contentR.add(txtDetallesLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 280, 140));
+        contentR.add(txtDetallesLugarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 280, 140));
 
-        txtDetallesLugarT1.setBackground(new java.awt.Color(255, 255, 255));
         txtDetallesLugarT1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
-        contentR.add(txtDetallesLugarT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 280, 160));
+        contentR.add(txtDetallesLugarT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 280, 160));
 
-        txtDetallesLugarT2.setBackground(new java.awt.Color(255, 255, 255));
         txtDetallesLugarT2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 140, 0), 1, true));
-        contentR.add(txtDetallesLugarT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 280, 340));
+        contentR.add(txtDetallesLugarT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 280, 340));
 
         jLabel5.setForeground(new java.awt.Color(255, 140, 0));
         jLabel5.setText("Fotos Menu");
         contentR.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
+
+        jbtnGuardar.setText("Guardar");
+        jbtnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contentR.add(jbtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 200, 30));
+
+        jbtnCancelar.setText("Cancelar");
+        contentR.add(jbtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 530, 200, 30));
+
+        jbtnSubirMenu.setText("Subir Imagen");
+        jbtnSubirMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSubirMenuActionPerformed(evt);
+            }
+        });
+        contentR.add(jbtnSubirMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, -1, -1));
+
+        jbtnsubirResta.setText("jButton2");
+        contentR.add(jbtnsubirResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, -1, -1));
 
         add(contentR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 600));
     }// </editor-fold>//GEN-END:initComponents
@@ -118,6 +136,10 @@ public class jpRestaurante extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreLugarTActionPerformed
 
+    private void jbtnSubirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSubirMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnSubirMenuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSubidosR;
@@ -127,6 +149,10 @@ public class jpRestaurante extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    public javax.swing.JButton jbtnCancelar;
+    public javax.swing.JButton jbtnGuardar;
+    public javax.swing.JButton jbtnSubirMenu;
+    public javax.swing.JButton jbtnsubirResta;
     public javax.swing.JTextField txtDetallesLugarT;
     public javax.swing.JTextField txtDetallesLugarT1;
     public javax.swing.JTextField txtDetallesLugarT2;
