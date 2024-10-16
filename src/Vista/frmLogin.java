@@ -48,7 +48,7 @@ public class frmLogin extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         jTituloL = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
-        jbtnRecuperarContra = new javax.swing.JButton();
+        btnRecuperarContra = new javax.swing.JButton();
         btnIrARegistro = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jlbShow = new javax.swing.JLabel();
@@ -97,12 +97,12 @@ public class frmLogin extends javax.swing.JFrame {
         });
         jPanel2.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 345, 238, 30));
 
-        jbtnRecuperarContra.setBackground(new java.awt.Color(102, 204, 0));
-        jbtnRecuperarContra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jbtnRecuperarContra.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnRecuperarContra.setText("Recuperar Contraseña");
-        jbtnRecuperarContra.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 204, 0), 1, true));
-        jPanel2.add(jbtnRecuperarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 452, 238, 31));
+        btnRecuperarContra.setBackground(new java.awt.Color(102, 204, 0));
+        btnRecuperarContra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRecuperarContra.setForeground(new java.awt.Color(255, 255, 255));
+        btnRecuperarContra.setText("Recuperar Contraseña");
+        btnRecuperarContra.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 204, 0), 1, true));
+        jPanel2.add(btnRecuperarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 452, 238, 31));
 
         btnIrARegistro.setBackground(new java.awt.Color(51, 153, 255));
         btnIrARegistro.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -209,7 +209,7 @@ public class frmLogin extends javax.swing.JFrame {
     
     
     
-    //Códifo para redondear un panel
+    //Código para redondear un panel
     // solo que recuerda que se redondea como poniendo otro mini panel dentro de ese
     // entonces que no se te olvide cambiarle el color al fondo del panel
     
@@ -263,13 +263,13 @@ public class frmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnIniciarSesion;
     public javax.swing.JButton btnIrARegistro;
+    public javax.swing.JButton btnRecuperarContra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel jTituloL;
-    public javax.swing.JButton jbtnRecuperarContra;
     public javax.swing.JLabel jlbFondoL;
     public javax.swing.JLabel jlbHide;
     public javax.swing.JLabel jlbShow;

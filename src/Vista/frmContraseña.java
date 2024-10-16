@@ -7,6 +7,16 @@ package Vista;
 import Controlador.ctrlContraseña;
 import Controlador.ctrlRecuperacion;
 import Modelo.User;
+import Tipografias.Fuentes;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.LayoutManager;
+import java.awt.RenderingHints;
+import javax.swing.JPanel;
+import Tipografias.Fuentes;
+
 
 /**
  *
@@ -17,8 +27,16 @@ public class frmContraseña extends javax.swing.JFrame {
     /**
      * Creates new form frmContraseña
      */
+    Fuentes tipoFuente;
     public frmContraseña() {
         initComponents();
+        rsscalelabel.RSScaleLabel.setScaleLabel(jlbFondoC, "src/Img/image(8).png");
+        
+        //Poner tipografia
+        tipoFuente = new Fuentes();
+        jlbNewContra.setFont(tipoFuente.fuente(tipoFuente.Baloo,0,25));
+                             
+
     }
 
     public static void initFrmContraseña(){
@@ -29,6 +47,7 @@ public class frmContraseña extends javax.swing.JFrame {
         ctrlContraseña controlador = new ctrlContraseña(Modelo,Vista,controladorRecuperacion);
         
         
+        
         Vista.setVisible(true);
     }
     @SuppressWarnings("unchecked")
@@ -36,43 +55,54 @@ public class frmContraseña extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        txtNuevaContraseña = new javax.swing.JTextField();
+        jPanelNC = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jlbNewContra = new javax.swing.JLabel();
+        txtNuevaContraseña = new javax.swing.JTextField();
         btnNContraseña = new javax.swing.JButton();
+        jlbFondoC = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(970, 610));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelNC.setBackground(new java.awt.Color(130, 204, 25));
+        jPanelNC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNuevaContraseña.setBackground(new java.awt.Color(255, 255, 255));
-        txtNuevaContraseña.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(txtNuevaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 382, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/newpassword (1).png"))); // NOI18N
+        jPanelNC.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 240, -1));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nueva Contraseña");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+        jlbNewContra.setBackground(new java.awt.Color(0, 0, 0));
+        jlbNewContra.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jlbNewContra.setText("Nueva Contraseña");
+        jPanelNC.add(jlbNewContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
+        jPanelNC.add(txtNuevaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 382, 40));
 
         btnNContraseña.setBackground(new java.awt.Color(94, 180, 209));
         btnNContraseña.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnNContraseña.setForeground(new java.awt.Color(255, 255, 255));
         btnNContraseña.setText("Actualizar");
-        jPanel1.add(btnNContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 200, 40));
+        jPanelNC.add(btnNContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 230, 40));
+
+        jlbFondoC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbFondoC.setToolTipText("");
+        jPanelNC.add(jlbFondoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 890, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelNC, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelNC, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,11 +143,67 @@ public class frmContraseña extends javax.swing.JFrame {
         });
     }
 
+    
+    
+    class RoundedPanel extends JPanel
+    {
+        private Color backgroundColor;
+        private int cornerRadius = 15;
+        public RoundedPanel(LayoutManager layout, int radius) {
+            super(layout);
+            cornerRadius = radius;
+        }
+        public RoundedPanel(LayoutManager layout, int radius, Color bgColor) {
+            super(layout);
+            cornerRadius = radius;
+            backgroundColor = bgColor;
+        }
+        public RoundedPanel(int radius) {
+            super();
+            cornerRadius = radius;
+            
+        }
+        public RoundedPanel(int radius, Color bgColor) {
+            super();
+            cornerRadius = radius;
+            backgroundColor = bgColor;
+        }
+        
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Dimension arcs = new Dimension(cornerRadius, cornerRadius);
+            int width = getWidth();
+            int height = getHeight();
+            Graphics2D graphics = (Graphics2D) g;
+            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            //Draws the rounded panel with borders.
+            if (backgroundColor != null) {
+                graphics.setColor(backgroundColor);
+            } else {
+                graphics.setColor(getBackground());
+            }
+            graphics.fillRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height); //paint background
+            graphics.setColor(getForeground());
+//            graphics.drawRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height); //paint border
+//             
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnNContraseña;
+    private javax.swing.JButton btnNContraseña;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JTextField txtNuevaContraseña;
+    public javax.swing.JPanel jPanelNC;
+    public javax.swing.JLabel jlbFondoC;
+    private javax.swing.JLabel jlbNewContra;
+    private javax.swing.JTextField txtNuevaContraseña;
     // End of variables declaration//GEN-END:variables
 }
