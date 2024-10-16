@@ -56,19 +56,26 @@ public class frmContraseña extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jPanelNC = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jlbNewContra = new javax.swing.JLabel();
         txtNuevaContraseña = new javax.swing.JTextField();
         btnNContraseña = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jlbNewContra = new javax.swing.JLabel();
         jlbFondoC = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(970, 610));
 
         jPanelNC.setBackground(new java.awt.Color(130, 204, 25));
         jPanelNC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelNC.add(txtNuevaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 382, 40));
+
+        btnNContraseña.setBackground(new java.awt.Color(94, 180, 209));
+        btnNContraseña.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnNContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        btnNContraseña.setText("Actualizar");
+        jPanelNC.add(btnNContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 230, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/newpassword (1).png"))); // NOI18N
@@ -78,17 +85,11 @@ public class frmContraseña extends javax.swing.JFrame {
         jlbNewContra.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jlbNewContra.setText("Nueva Contraseña");
         jPanelNC.add(jlbNewContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
-        jPanelNC.add(txtNuevaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 382, 40));
-
-        btnNContraseña.setBackground(new java.awt.Color(94, 180, 209));
-        btnNContraseña.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnNContraseña.setForeground(new java.awt.Color(255, 255, 255));
-        btnNContraseña.setText("Actualizar");
-        jPanelNC.add(btnNContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 230, 40));
 
         jlbFondoC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbFondoC.setToolTipText("");
         jPanelNC.add(jlbFondoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 890, 530));
+        jPanelNC.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,12 +199,13 @@ public class frmContraseña extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNContraseña;
+    public javax.swing.JButton btnNContraseña;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanelNC;
+    private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JLabel jlbFondoC;
-    private javax.swing.JLabel jlbNewContra;
-    private javax.swing.JTextField txtNuevaContraseña;
+    public javax.swing.JLabel jlbNewContra;
+    public javax.swing.JTextField txtNuevaContraseña;
     // End of variables declaration//GEN-END:variables
 }
