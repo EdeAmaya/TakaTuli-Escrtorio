@@ -58,7 +58,7 @@ public class ctrlLogin implements MouseListener{
              vista.dispose();
         }
         
-        if(e.getSource() == vista.btnIrARegistro){
+        if(e.getSource() == vista.jbtnRecuperarContra){
             Vista.frmRecuperacion.initFrmRecuperacion();
              vista.dispose();
         }

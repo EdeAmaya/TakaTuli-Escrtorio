@@ -18,6 +18,8 @@ public class frmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         rsscalelabel.RSScaleLabel.setScaleLabel(jlbFondoL,"src/Img/image (8).png");
+        this.jlbHide.setVisible(false);
+        this.jlbShow.setVisible(true);
         
         
         //Poner tipografia
@@ -42,13 +44,17 @@ public class frmLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnIniciarSesion = new javax.swing.JButton();
-        btnIrARegistro = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jPanel2 = new RoundedPanel(50,Color.white);
         txtCorreo = new javax.swing.JTextField();
         jTituloL = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        btnIniciarSesion = new javax.swing.JButton();
+        jbtnRecuperarContra = new javax.swing.JButton();
+        btnIrARegistro = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jlbShow = new javax.swing.JLabel();
+        jlbHide = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
         jlbFondoL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,67 +66,94 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo-removebg-preview (2).png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 310, 300));
-
-        btnIniciarSesion.setText("Iniciar Sesión");
-        jPanel1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
-
-        btnIrARegistro.setText("Registro");
-        btnIrARegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIrARegistroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnIrARegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, -1, -1));
-
-        jButton3.setText("Recuperar Contraseña");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 310, 300));
 
         jPanel2.setBackground(new java.awt.Color(130, 204, 25));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtCorreo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 140, 0), 2, true));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 143, 370, 40));
 
+        jTituloL.setForeground(new java.awt.Color(240, 140, 0));
+        jTituloL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jTituloL.setText("INICIAR SESIÓN");
+        jPanel2.add(jTituloL, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 437, 77));
 
+        btnIniciarSesion.setBackground(new java.awt.Color(240, 140, 0));
+        btnIniciarSesion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 140, 0), 1, true));
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 345, 238, 30));
+
+        jbtnRecuperarContra.setBackground(new java.awt.Color(102, 204, 0));
+        jbtnRecuperarContra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jbtnRecuperarContra.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnRecuperarContra.setText("Recuperar Contraseña");
+        jbtnRecuperarContra.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 204, 0), 1, true));
+        jPanel2.add(jbtnRecuperarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 452, 238, 31));
+
+        btnIrARegistro.setBackground(new java.awt.Color(51, 153, 255));
+        btnIrARegistro.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnIrARegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnIrARegistro.setText("Registro");
+        btnIrARegistro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 1, true));
+        btnIrARegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIrARegistroActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnIrARegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 401, 238, 33));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(240, 140, 0));
+        jLabel3.setText("Usuario o Correo Electrónico");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 118, -1, -1));
+
+        jlbShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbShow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/image (12).png"))); // NOI18N
+        jlbShow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbShowMousePressed(evt);
+            }
+        });
+        jPanel2.add(jlbShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 37, 46));
+
+        jlbHide.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbHide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/image (13).png"))); // NOI18N
+        jlbHide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbHideMousePressed(evt);
+            }
+        });
+        jPanel2.add(jlbHide, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 37, 40));
+
+        txtContraseña.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtContraseña.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 140, 0), 2, true));
         txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContraseñaActionPerformed(evt);
             }
         });
+        jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 370, 40));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jTituloL)))
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jTituloL)
-                .addGap(52, 52, 52)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(289, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(240, 140, 0));
+        jLabel4.setText("Contraseña");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 450, 530));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 450, 530));
         jPanel1.add(jlbFondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,9 +178,26 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
     private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraseñaActionPerformed
+
+    private void jlbShowMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbShowMousePressed
+        jlbHide.setVisible(true);
+        jlbShow.setVisible(false);
+        txtContraseña.setEchoChar((char)0);
+        
+    }//GEN-LAST:event_jlbShowMousePressed
+
+    private void jlbHideMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbHideMousePressed
+        jlbHide.setVisible(false);
+        jlbShow.setVisible(true);
+        txtContraseña.setEchoChar('*');
+    }//GEN-LAST:event_jlbHideMousePressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -156,6 +206,12 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
+    //Códifo para redondear un panel
+    // solo que recuerda que se redondea como poniendo otro mini panel dentro de ese
+    // entonces que no se te olvide cambiarle el color al fondo del panel
     
     class RoundedPanel extends JPanel
     {
@@ -207,13 +263,17 @@ public class frmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnIniciarSesion;
     public javax.swing.JButton btnIrARegistro;
-    public javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel jTituloL;
+    public javax.swing.JButton jbtnRecuperarContra;
     public javax.swing.JLabel jlbFondoL;
-    public javax.swing.JTextField txtContraseña;
+    public javax.swing.JLabel jlbHide;
+    public javax.swing.JLabel jlbShow;
+    public javax.swing.JPasswordField txtContraseña;
     public javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }
