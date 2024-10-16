@@ -5,6 +5,7 @@
 package Controlador;
 
 import Vista.frmInicio;
+import Vista.jpAjustes;
 import Vista.jpDestinos;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,6 +20,7 @@ public class ctrlInicio implements MouseListener {
   public ctrlInicio(frmInicio vista){
         this.Vista = vista;
         vista.btnDestinos.addMouseListener(this);
+        vista.btnAjustes.addMouseListener(this);
              
  }
 
@@ -32,6 +34,14 @@ public class ctrlInicio implements MouseListener {
        Vista.content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
        Vista.content.repaint();       
      }
+       
+       if (e.getSource() == Vista.btnAjustes) {
+            jpAjustes p1 = new jpAjustes(); // Crea una instancia 
+            Vista.content.removeAll();      // Elimina todos los componentes del contenedor 'content'
+            Vista.content.add(p1); // Agrega el nuevo panel al centro del contenedor
+            Vista.content.revalidate();      // Vuelve a validar el contenedor para que se ajuste a los cambios
+            Vista.content.repaint();
+        }
         
     }
 

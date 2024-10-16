@@ -9,6 +9,7 @@ import Vista.frmInicio;
 
 import Vista.jpHospedaje;
 import Vista.jpSubidos;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -66,29 +67,34 @@ public class ctrlHospedaje implements MouseListener {
         if (e.getSource() == Vista.btnSubirImagenH) {
             System.out.println("se dio click subir imagenes");
 
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setDialogTitle("Selecciona una imagen");
-            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            int result = fileChooser.showOpenDialog(null);
-            
-            
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Selecciona una imagen");
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    int result = fileChooser.showOpenDialog(null);
+    
+    if (result == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
 
-                try {
-                    // Subir la imagen a Imgur
-                    urlSubida = Modelo.subirImagenImgBB(selectedFile); // 2. Asignar a urlSubida
-                    JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubida);
-                    System.err.println("esta es la URL: " + urlSubida);
-                    
-                    BufferedImage img = ImageIO.read(new URL(urlSubida));
-                    ImageIcon icon = new ImageIcon(img);
-                    Vista.lbImagenHospedaje.setIcon(icon);
+        try {
+            // Subir la imagen a Imgur
+            urlSubida = Modelo.subirImagenImgBB(selectedFile); // 2. Asignar a urlSubida
+            JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubida);
+            System.err.println("esta es la URL: " + urlSubida);
+            
+            BufferedImage img = ImageIO.read(new URL(urlSubida));
+            
+            // Ajustar el tamaño deseado
+            int desiredWidth = 180; // Cambia este valor al ancho deseado
+            int desiredHeight = 180; // Cambia este valor a la altura deseada
+            Image scaledImg = img.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
+            
+            ImageIcon icon = new ImageIcon(scaledImg);
+            Vista.lbImagenHospedaje.setIcon(icon);
 
-                } catch (Exception ee) {
-                    System.err.print("este es el error: " + ee);
-                }
-            }
+        } catch (Exception ee) {
+            System.err.print("este es el error: " + ee);
+        }
+    }
         }
 
 

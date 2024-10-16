@@ -8,7 +8,9 @@ import Modelo.Restaurante;
 import Vista.frmInicio;
 import Vista.jpRestaurante;
 import Vista.jpSubidos;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
@@ -21,7 +23,7 @@ import javax.swing.JOptionPane;
  *
  * @author jluis
  */
-public class ctrlRestaurante {
+public class ctrlRestaurante implements MouseListener {
     
     
     private jpRestaurante Vista;
@@ -34,11 +36,16 @@ public class ctrlRestaurante {
         this.Vista = vista;
         this.Modelo = modelo;
         
+        vista.lbFotoMenu.addMouseListener(this); 
+        vista.lbFotoRestaurante.addMouseListener(this);
+        vista.jbtnGuardar.addMouseListener(this);
+        
         
         
         
     }
-    
+    private String urlSubidaR;
+    private String urlSubidaM;
     @Override
     public void mouseClicked(MouseEvent e) {
         
@@ -50,33 +57,71 @@ public class ctrlRestaurante {
             ctrlInicio.Vista.content.repaint();
         }
 
-        if (e.getSource() == Vista.jbtnsubirResta) {
-            System.out.println("se dio click subir imagenes");
+   if (e.getSource() == Vista.lbFotoMenu) {
+    System.out.println("se dio click subir imagenes");
 
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setDialogTitle("Selecciona una imagen");
-            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            int result = fileChooser.showOpenDialog(null);
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Selecciona una imagen");
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    int result = fileChooser.showOpenDialog(null);
+    
+    if (result == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
+
+        try {
+            // Subir la imagen a Imgur
+            urlSubidaR = Modelo.subirImagenImgBB(selectedFile); // 2. Asignar a urlSubida
+            JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubidaR);
+            System.err.println("esta es la URL: " + urlSubidaR);
             
+            BufferedImage img = ImageIO.read(new URL(urlSubidaR));
             
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
+            // Ajustar el tamaño deseado
+            int desiredWidth = 180; // Cambia este valor al ancho deseado
+            int desiredHeight = 180; // Cambia este valor a la altura deseada
+            Image scaledImg = img.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
+            
+            ImageIcon icon = new ImageIcon(scaledImg);
+            Vista.lbFotoMenu.setIcon(icon);
 
-                try {
-                    // Subir la imagen a Imgur
-                    urlSubidaR = Modelo.subirImagenImgBB(selectedFile); // 2. Asignar a urlSubida
-                    JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubidaR);
-                    System.err.println("esta es la URL: " + urlSubidaR);
-                    
-                    BufferedImage img = ImageIO.read(new URL(urlSubidaR));
-                    ImageIcon icon = new ImageIcon(img);
-                    Vista.jlbFotoResta.setIcon(icon);
-
-                } catch (Exception ee) {
-                    System.err.print("este es el error: " + ee);
-                }
-            }
+        } catch (Exception ee) {
+            System.err.print("este es el error: " + ee);
         }
+    }
+}
+   
+     if (e.getSource() == Vista.lbFotoRestaurante) {
+    System.out.println("se dio click subir imagenes");
+
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Selecciona una imagen");
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    int result = fileChooser.showOpenDialog(null);
+    
+    if (result == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
+
+        try {
+            // Subir la imagen a Imgur
+            urlSubidaM = Modelo.subirImagenImgBB(selectedFile); // 2. Asignar a urlSubida
+            JOptionPane.showMessageDialog(null, "Imagen subida a: " + urlSubidaM);
+            System.err.println("esta es la URL: " + urlSubidaM);
+            
+            BufferedImage img = ImageIO.read(new URL(urlSubidaM));
+            
+            // Ajustar el tamaño deseado
+            int desiredWidth = 180; // Cambia este valor al ancho deseado
+            int desiredHeight = 180; // Cambia este valor a la altura deseada
+            Image scaledImg = img.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
+            
+            ImageIcon icon = new ImageIcon(scaledImg);
+            Vista.lbFotoRestaurante.setIcon(icon);
+
+        } catch (Exception ee) {
+            System.err.print("este es el error: " + ee);
+        }
+    }
+}
 
 
         if (e.getSource() == Vista.jbtnGuardar) {
@@ -103,8 +148,8 @@ public class ctrlRestaurante {
             if (validacionesCorrectas) {
                 Modelo.setNombre_Restaurante(Vista.txtNombreLugarT.getText());
                 Modelo.setMenu_Restaurante(Vista.txtDetallesLugarT.getText());
-                //Modelo.setFotos_Hospedaje(urlSubida);
-                //Modelo.setFotos_Hospedaje(());
+                Modelo.setFoto_Menu(urlSubidaR);
+                Modelo.setFoto_Restaurante(urlSubidaM);
                 Modelo.GuardarRestaurante();
             }
         }
@@ -114,6 +159,8 @@ public class ctrlRestaurante {
         }*/
 
     }
+    
+ 
 
     @Override
     public void mousePressed(MouseEvent e) {
