@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ctrlHospedaje;
+import Controlador.ctrlLogin;
 import Modelo.Hospedaje;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,7 +44,9 @@ public class jpHospedaje extends javax.swing.JPanel {
         Hospedaje Modelo = new Hospedaje();
         jpHospedaje Vista = this ;
         frmInicio inicio = new frmInicio();
-        ctrlHospedaje controlador = new ctrlHospedaje(this,Modelo,inicio);
+          ctrlLogin loginController = new ctrlLogin(Modelo, Vista);
+        ctrlHospedaje controlador = new ctrlHospedaje(this,Modelo,inicio,loginController);
+     
     }
     /*
       public static void initJPHospedaje(){

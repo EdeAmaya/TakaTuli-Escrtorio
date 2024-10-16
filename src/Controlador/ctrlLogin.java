@@ -11,6 +11,7 @@ public class ctrlLogin implements MouseListener{
     
     User modelo;
     frmLogin vista;
+    private String user;
     
     public ctrlLogin(User Modelo, frmLogin Vista) {
         this.modelo = Modelo;
@@ -42,6 +43,8 @@ public class ctrlLogin implements MouseListener{
                  if (comprobar == true) {
                 JOptionPane.showMessageDialog(vista,"Usuario existe, ¡Bienvenido!");
                 Vista.frmInicio.initFrmInicio();
+                 user = vista.txtCorreo.getText();
+                System.out.println("El Usuario es " + user);
                 vista.dispose();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario no encontrado");
@@ -62,6 +65,13 @@ public class ctrlLogin implements MouseListener{
             Vista.frmRecuperacion.initFrmRecuperacion();
              vista.dispose();
         }
+        
+       
+    }
+
+ public String getUser() {
+        return user;
+        
     }
 
 
