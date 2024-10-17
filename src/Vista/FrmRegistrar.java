@@ -64,8 +64,6 @@ public class FrmRegistrar extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(130, 204, 25));
-        jPanel1.setFocusCycleRoot(true);
-        jPanel1.setFocusTraversalPolicyProvider(true);
         jPanel1.setPreferredSize(new java.awt.Dimension(1440, 1024));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
