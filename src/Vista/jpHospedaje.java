@@ -44,8 +44,8 @@ public class jpHospedaje extends javax.swing.JPanel {
         Hospedaje Modelo = new Hospedaje();
         jpHospedaje Vista = this ;
         frmInicio inicio = new frmInicio();
-          ctrlLogin loginController = new ctrlLogin(Modelo, Vista);
-        ctrlHospedaje controlador = new ctrlHospedaje(this,Modelo,inicio,loginController);
+          //ctrlLogin loginController = new ctrlLogin(Modelo, Vista);
+        //ctrlHospedaje controlador = new ctrlHospedaje(this,Modelo,inicio,loginController);
      
     }
     /*

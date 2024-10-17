@@ -3,8 +3,8 @@ import java.sql.*;
 public class ClaseConexion {
     //Variables para la cadena de conexión
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-    private static final String USUARIO = "takatuliPC";
-    private static final String CONTRASENA = "takatuliPC";
+    private static final String USUARIO = "Takatuli9";
+    private static final String CONTRASENA = "Takatuli9";
     
     //Creación del metodo de conexión que retorna la conexión
     public static Connection getConexion() {

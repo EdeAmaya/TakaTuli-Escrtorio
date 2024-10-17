@@ -9,11 +9,9 @@ import Vista.jpDestinos;
 import Vista.jpHospedaje;
 import Vista.jpRestaurante;
 import Vista.jpSubidos;
-import Vista.panelRojo;
+import Vista.jpSubidos2;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -45,8 +43,9 @@ public class ctrlDestinos implements MouseListener {
             ctrlInicio.Vista.content.repaint();
         }
         
+        //cambien nada más el panel
           if (e.getSource() == vista.btnSubidos) {
-            jpSubidos p2 = new jpSubidos(); // Crea una instancia 
+            jpSubidos2 p2 = new jpSubidos2(); // Crea una instancia 
             ctrlInicio.Vista.content.removeAll();      // Elimina todos los componentes del contenedor 'content'
             ctrlInicio.Vista.content.add(p2); // Agrega el nuevo panel al centro del contenedor
             ctrlInicio.Vista.content.revalidate(); // Vuelve a validar el contenedor para que se ajuste a los cambios

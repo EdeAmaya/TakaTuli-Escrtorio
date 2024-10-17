@@ -1,15 +1,14 @@
 package Modelo;
 
 import Vista.jpHospedaje;
+import Vista.jpSubidos2;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Base64;
 import java.util.UUID;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +19,6 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
-import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.json.JSONObject;
 
 public class Hospedaje {
@@ -119,7 +117,39 @@ public class Hospedaje {
     }
     
     
+    
+    
+    //////////////////////////Lo que agregue/////////////////////////////////////
+    
+    public void cargarDatosTabla(jpSubidos2 vista) {
+        // Obtén la fila seleccionada 
+        int filaSeleccionada = vista.jtbHost.getSelectedRow();
 
+        // Debemos asegurarnos que haya una fila seleccionada antes de acceder a sus valores
+        if (filaSeleccionada != -1) {
+            String UUIDDeTb = vista.jtbHost.getValueAt(filaSeleccionada, 0).toString();
+            String NombreDeTB = vista.jtbHost.getValueAt(filaSeleccionada, 1).toString();
+            String ImagenDeTB = vista.jtbHost.getValueAt(filaSeleccionada, 2).toString();
+            String PrecioDeTB = vista.jtbHost.getValueAt(filaSeleccionada, 3).toString();
+            String DetallesDeTB = vista.jtbHost.getValueAt(filaSeleccionada, 4).toString();
+
+            // Establece los valores en los campos de texto
+            vista.txtNombreHost.setText(NombreDeTB);
+            vista.jlbImgH.setText(ImagenDeTB);
+            vista.txtPrecioH.setText(PrecioDeTB);
+            vista.txtDetallesH.setText(DetallesDeTB);
+            
+        }
+    }
+    
+    
+    /////////////////////////////////////////////////////////////////////////////
+    
+
+    
+    
+    
+    
     public void EliminarHospedaje(JTable tabla) {
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
