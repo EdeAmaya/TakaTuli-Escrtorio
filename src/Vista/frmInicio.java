@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ctrlInicio;
+import Tipografias.Fuentes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -21,11 +22,15 @@ public class frmInicio extends javax.swing.JFrame {
     /**
      * Creates new form frmInicio
      */
-    
+    Fuentes tipoFuente;
     public frmInicio() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(jlbFondo,"src/Img/image (8).png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jlbLogo,"src/Img/logo.png"); 
+        
+        //Poner tipografia
+        tipoFuente = new Fuentes();
+        jlbTituloI.setFont(tipoFuente.fuente(tipoFuente.Baloo,0,40));
     }
     
      public static void initFrmInicio(){
@@ -42,6 +47,7 @@ public class frmInicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         content = new javax.swing.JPanel();
+        jlbTituloI = new javax.swing.JLabel();
         btnAjustes = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
         btnDestinos = new javax.swing.JButton();
@@ -58,7 +64,11 @@ public class frmInicio extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         content.setBackground(new java.awt.Color(255, 255, 255));
-        content.setLayout(new java.awt.BorderLayout());
+        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlbTituloI.setText("¡Bienvenido");
+        content.add(jlbTituloI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 340, 50));
+
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 830, 600));
 
         btnAjustes.setBackground(new java.awt.Color(130, 204, 25));
@@ -146,5 +156,6 @@ public class frmInicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlbFondo;
     public javax.swing.JLabel jlbLogo;
+    public javax.swing.JLabel jlbTituloI;
     // End of variables declaration//GEN-END:variables
 }

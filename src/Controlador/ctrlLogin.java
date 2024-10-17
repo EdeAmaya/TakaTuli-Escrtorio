@@ -19,7 +19,7 @@ public class ctrlLogin implements MouseListener{
 
         vista.btnIniciarSesion.addMouseListener(this);
         vista.btnIrARegistro.addMouseListener(this);
-        vista.btnIrARegistro.addMouseListener(this);   
+        vista.btnRecuperarContra.addMouseListener(this);   
     }
 
     @Override

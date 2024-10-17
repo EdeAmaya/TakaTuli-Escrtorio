@@ -153,7 +153,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel4.setText("Contraseña");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 450, 530));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 450, 530));
         jPanel1.add(jlbFondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
